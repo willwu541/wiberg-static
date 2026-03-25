@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170" role="img" aria-labelledby="t">
+  <title id="t">Marking and documentation</title>
+  <rect width="400" height="170" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Identification &amp; traceability</text>
+  <rect x="40" y="50" width="120" height="70" fill="#eef1f5" stroke="#1a2332"/>
+  <text x="50" y="75" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">TAG</text>
+  <text x="50" y="92" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">Panel mark</text>
+  <text x="50" y="105" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">Revision</text>
+  <path d="M55 112 L95 112" stroke="#c9a227" marker-end="url(#mk)"/><text x="58" y="108" font-family="Arial,sans-serif" font-size="7" fill="#c9a227">% bars</text>
+  <rect x="200" y="50" width="160" height="70" fill="#f4f6f9" stroke="#1e3a5f"/>
+  <text x="210" y="75" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Packing list � drawings</text>
+  <text x="210" y="95" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Certificates if purchased</text>
+  <defs><marker id="mk" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#c9a227"/></marker></defs>
+  <text x="20" y="145" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">When ordered; language/units per project</text>
+</svg>

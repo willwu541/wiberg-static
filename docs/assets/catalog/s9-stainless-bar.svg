@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 180" role="img" aria-labelledby="t">
+  <title id="t">Stainless bar passive film</title>
+  <rect width="380" height="180" fill="#ffffff"/>
+  <rect x="40" y="70" width="300" height="40" fill="#c5cad0" stroke="#1a2332" stroke-width="1.5"/>
+  <rect x="40" y="70" width="300" height="6" fill="#b8d4e8" stroke="none" opacity="0.9"/>
+  <text x="40" y="40" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Stainless  normally uncoated</text>
+  <text x="40" y="145" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Passive film; chlorides / cleaning per project</text>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-labelledby="t">
+  <title id="t">Industrial walkway context</title>
+  <rect width="400" height="200" fill="#ffffff"/>
+  <rect x="40" y="120" width="320" height="8" fill="#8a96a8" stroke="#1a2332"/>
+  <rect x="50" y="90" width="300" height="30" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+  <g stroke="#2c5282" stroke-width="1"><line x1="60" y1="95" x2="60" y2="115"/><line x1="85" y1="95" x2="85" y2="115"/><line x1="110" y1="95" x2="110" y2="115"/><line x1="135" y1="95" x2="135" y2="115"/><line x1="55" y1="102" x2="340" y2="102"/><line x1="55" y1="112" x2="340" y2="112"/></g>
+  <text x="40" y="40" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Typical installation context (schematic)</text>
+  <text x="40" y="175" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Platforms, walkways, trench covers  where quoted</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" role="img" aria-labelledby="t">
+  <title id="t">Oil and gas process plant silhouette</title>
+  <defs>
+    <linearGradient id="og-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8eef5"/><stop offset="100%" stop-color="#f7f9fc"/>
+    </linearGradient>
+    <linearGradient id="og-steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5a6d82"/><stop offset="100%" stop-color="#2c3e50"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="420" fill="url(#og-sky)"/>
+  <rect x="0" y="320" width="960" height="100" fill="#d0d6de"/>
+  <g fill="url(#og-steel)" opacity="0.92">
+    <rect x="120" y="140" width="45" height="180" rx="2"/><rect x="175" y="110" width="55" height="210" rx="2"/>
+    <rect x="250" y="160" width="40" height="160" rx="2"/><rect x="300" y="90" width="70" height="230" rx="3"/>
+    <rect x="390" y="130" width="50" height="190" rx="2"/><rect x="450" y="100" width="60" height="220" rx="2"/>
+    <rect x="530" y="150" width="85" height="170" rx="3"/><rect x="630" y="120" width="55" height="200" rx="2"/>
+    <rect x="700" y="170" width="45" height="150" rx="2"/><rect x="760" y="95" width="95" height="225" rx="3"/>
+  </g>
+  <g stroke="#1e3a5f" stroke-width="3" fill="none" opacity="0.35">
+    <path d="M80 200 Q480 120 880 200"/><path d="M100 250 Q480 180 860 250"/>
+  </g>
+  <g fill="#1e3a5f" opacity="0.25">
+    <rect x="60" y="300" width="840" height="8"/><rect x="100" y="280" width="760" height="6"/>
+  </g>
+  <text x="48" y="48" font-family="Arial,sans-serif" font-size="22" fill="#1e3a5f" font-weight="700">Oil &amp; Gas</text>
+  <text x="48" y="76" font-family="Arial,sans-serif" font-size="13" fill="#4a5568">Process modules, pipe racks, access  schematic</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" role="img" aria-labelledby="t">
+  <title id="t">Grating on supports elevation</title>
+  <rect width="400" height="220" fill="#ffffff"/>
+  <rect x="50" y="140" width="70" height="50" fill="#8a96a8" stroke="#1a2332"/>
+  <rect x="165" y="140" width="70" height="50" fill="#8a96a8" stroke="#1a2332"/>
+  <rect x="280" y="140" width="70" height="50" fill="#8a96a8" stroke="#1a2332"/>
+  <rect x="45" y="95" width="310" height="35" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+  <g stroke="#2c5282" stroke-width="1.2">
+    <line x1="55" y1="100" x2="55" y2="125"/><line x1="75" y1="100" x2="75" y2="125"/><line x1="95" y1="100" x2="95" y2="125"/>
+    <line x1="115" y1="100" x2="115" y2="125"/><line x1="135" y1="100" x2="135" y2="125"/><line x1="155" y1="100" x2="155" y2="125"/>
+    <line x1="175" y1="100" x2="175" y2="125"/><line x1="195" y1="100" x2="195" y2="125"/><line x1="215" y1="100" x2="215" y2="125"/>
+    <line x1="235" y1="100" x2="235" y2="125"/><line x1="255" y1="100" x2="255" y2="125"/><line x1="275" y1="100" x2="275" y2="125"/>
+    <line x1="295" y1="100" x2="295" y2="125"/><line x1="315" y1="100" x2="315" y2="125"/><line x1="335" y1="100" x2="335" y2="125"/>
+    <line x1="50" y1="108" x2="345" y2="108"/><line x1="50" y1="118" x2="345" y2="118"/>
+  </g>
+  <defs><marker id="m" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#c9a227"/></marker></defs>
+  <line x1="200" y1="88" x2="85" y2="88" stroke="#c9a227" stroke-width="1.5" marker-end="url(#m)"/>
+  <text x="90" y="84" font-family="Arial,sans-serif" font-size="11" fill="#1a2332">Span % bearing bars</text>
+  <text x="20" y="30" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Typical support layout (elevation)</text>
+  <text x="20" y="205" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Supports under bearing-bar direction unless structurally accepted otherwise</text>
+</svg>

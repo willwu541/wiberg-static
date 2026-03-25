@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 200" role="img" aria-labelledby="t">
+  <title id="t">Load table reading sequence</title>
+  <rect width="440" height="200" fill="#ffffff"/>
+  <text x="16" y="26" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Reading sequence (released tables)</text>
+  <g font-family="Arial,sans-serif" font-size="9" fill="#1a2332">
+    <circle cx="50" cy="70" r="14" fill="#e8f1f8" stroke="#2b6cb0"/><text x="44" y="74" font-size="10" font-weight="700">1</text><text x="72" y="74">Type</text>
+    <circle cx="50" cy="110" r="14" fill="#e8f1f8" stroke="#2b6cb0"/><text x="44" y="114" font-size="10" font-weight="700">2</text><text x="72" y="114">Bar + s�</text>
+    <circle cx="160" cy="70" r="14" fill="#e8f1f8" stroke="#2b6cb0"/><text x="154" y="74" font-size="10" font-weight="700">3</text><text x="182" y="74">s�</text>
+    <circle cx="160" cy="110" r="14" fill="#e8f1f8" stroke="#2b6cb0"/><text x="154" y="114" font-size="10" font-weight="700">4</text><text x="182" y="114">Span % bars</text>
+    <circle cx="270" cy="90" r="14" fill="#e8f1f8" stroke="#2b6cb0"/><text x="264" y="94" font-size="10" font-weight="700">5</text><text x="292" y="94">Load vs limit</text>
+    <circle cx="360" cy="90" r="14" fill="#fff9ec" stroke="#c9a227"/><text x="354" y="94" font-size="10" font-weight="700">6</text><text x="382" y="94">Stress or �</text>
+  </g>
+  <path d="M64 70 L146 70 M64 110 L146 110 M174 70 L256 90 M174 110 L256 90 M284 90 L346 90" stroke="#c8ced8" stroke-width="1.2" fill="none"/>
+  <text x="16" y="175" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Valid only at authorised revision; check every assumption</text>
+</svg>

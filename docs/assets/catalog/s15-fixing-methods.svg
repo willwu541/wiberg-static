@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-labelledby="t">
+  <title id="t">Welding clips bolting</title>
+  <rect width="400" height="200" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Fixing methods (overview)</text>
+  <g transform="translate(40,55)">
+    <rect x="0" y="30" width="80" height="12" fill="#d8dee8" stroke="#1a2332"/>
+    <rect x="35" y="10" width="10" height="50" fill="#c5ccd6" stroke="#1a2332"/>
+    <path d="M40 42 L50 38 L50 46 Z" fill="#e67e22"/>
+    <text x="0" y="75" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Site / shop weld</text>
+  </g>
+  <g transform="translate(150,50)">
+    <rect x="0" y="35" width="70" height="10" fill="#d8dee8" stroke="#1a2332"/>
+    <path d="M35 5 L25 35 L45 35 Z" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+    <circle cx="35" cy="40" r="4" fill="#2b6cb0"/>
+    <text x="0" y="75" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Clip to flange</text>
+  </g>
+  <g transform="translate(270,48)">
+    <rect x="10" y="32" width="60" height="12" fill="#d8dee8" stroke="#1a2332"/>
+    <line x1="40" y1="20" x2="40" y2="32" stroke="#1a2332" stroke-width="2"/>
+    <rect x="34" y="8" width="12" height="8" fill="#a0a8b0" stroke="#1a2332"/>
+    <text x="5" y="75" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Bolted</text>
+  </g>
+  <text x="20" y="175" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Galvanized: agree zinc repair after site welding</text>
+</svg>

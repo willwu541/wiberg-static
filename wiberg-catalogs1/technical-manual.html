@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WIBERG Technical Manual 2026</title>
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    .page { font-size: 10px; }
+    .page.landscape { width: 297mm; min-height: 210mm; }
+    @media print {
+      .page.landscape { width: 297mm; min-height: 210mm; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WIBERG TECHNICAL MANUAL — data tables from master-data1.js; verify on released submittals. -->
+
+<!-- ═══ PAGE 1: COVER ═══ -->
+<div class="page" style="padding:0;">
+  <div style="background:var(--c-navy);width:100%;min-height:var(--page-h);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:20mm;">
+    <div style="font-size:3.5rem;font-weight:900;letter-spacing:3px;">WIBERG</div>
+    <div style="font-size:1rem;letter-spacing:5px;margin-top:2mm;opacity:0.7;">INDUSTRIAL GRATING SOLUTIONS</div>
+    <div style="width:50mm;border-bottom:3px solid var(--c-accent);margin:12mm auto;"></div>
+    <div style="font-size:2.2rem;font-weight:800;">TECHNICAL CATALOG</div>
+    <div style="font-size:1.8rem;font-weight:700;color:var(--c-blue);margin-top:3mm;">ENGINEERING MANUAL</div>
+    <div style="margin-top:12mm;font-size:0.95rem;opacity:0.7;">Load Tables &nbsp;|&nbsp; Design Formulas &nbsp;|&nbsp; Installation &nbsp;|&nbsp; Standards</div>
+    <div style="margin-top:auto;"></div>
+    <div style="font-size:0.85rem;opacity:0.5;margin-top:20mm;">For: Structural Engineers &nbsp;|&nbsp; EPC Contractors &nbsp;|&nbsp; Specifiers</div>
+    <div style="font-size:0.75rem;opacity:0.4;margin-top:4mm;">www.wiberg-grating.com &nbsp;|&nbsp; Edition 2026</div>
+  </div>
+</div>
+
+<!-- ═══ PAGE 2: TOC ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">TABLE OF CONTENTS</div>
+  <div class="bar"></div>
+  <div class="body mt-2" style="line-height:2;">
+    <div class="flex justify-between"><span class="bold navy">Introduction &amp; design basis</span><span>3</span></div>
+    <div class="flex justify-between"><span class="bold navy">Section properties &amp; elastic design</span><span>4</span></div>
+    <div class="flex justify-between"><span class="bold navy">Loads: uniform, patch, vehicular</span><span>5</span></div>
+    <div class="flex justify-between"><span class="bold navy">Deflection &amp; vibration (overview)</span><span>6</span></div>
+    <div class="flex justify-between"><span class="bold navy">Sample calculations</span><span>7–8</span></div>
+    <div class="flex justify-between"><span class="bold navy">Marking system &amp; imperial mapping</span><span>9</span></div>
+    <div class="flex justify-between"><span class="bold navy">Using the load tables (notes)</span><span>10</span></div>
+    <div class="flex justify-between"><span class="bold navy">YB/T Appendix E tables (landscape)</span><span>11–20</span></div>
+    <div class="flex justify-between"><span class="bold navy">Serrated factors &amp; aluminum</span><span>21–22</span></div>
+    <div class="flex justify-between"><span class="bold navy">Installation guidelines</span><span>23–24</span></div>
+    <div class="flex justify-between"><span class="bold navy">Specification checklist</span><span>25</span></div>
+    <div class="flex justify-between"><span class="bold navy">Standards reference</span><span>26</span></div>
+    <div class="flex justify-between"><span class="bold navy">Glossary &amp; notation</span><span>27</span></div>
+  </div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>2</span></div>
+</div>
+
+<!-- ═══ PAGE 3: INTRO ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">INTRODUCTION</div>
+  <div class="bar"></div>
+  <div class="body">This manual summarises elastic design principles for bar grating used as simply supported flooring. Factored resistances, partial factors, and national annexes remain the responsibility of the Engineer of Record. Wiberg issues <strong>project-specific</strong> load tables and shop drawings for each order. Numeric tables in this edition are generated from <code>master-data1.js</code> (YB/T 4001.1 Appendix E excerpts).</div>
+  <div class="h3 mt-3">Design basis (typical)</div>
+  <table class="tbl tbl-compact mt-2">
+    <thead><tr><th>Item</th><th>Default assumption</th><th>Override</th></tr></thead>
+    <tbody>
+      <tr><td>Support</td><td class="left-td">Simply supported, uniform bearing</td><td class="left-td">Continuous spans — request analysis</td></tr>
+      <tr><td>Model</td><td class="left-td">Single bearing bar strip (s₁ width)</td><td class="left-td">Full panel FEA for complex cuts</td></tr>
+      <tr><td>Deflection</td><td class="left-td">Compare to span/200 or stricter</td><td class="left-td">State limit on drawings</td></tr>
+      <tr><td>Material</td><td class="left-td">Steel E = 200 GPa; Fy per grade</td><td class="left-td">Attach mill cert for high-strength</td></tr>
+    </tbody>
+  </table>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>3</span></div>
+</div>
+
+<!-- ═══ PAGE 4: SECTION PROPERTIES ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">SECTION PROPERTIES</div>
+  <div class="bar"></div>
+  <div class="body">For a rectangular bearing bar (depth <em>d</em>, thickness <em>t</em>), per metre width including s₁ spacing:</div>
+  <div class="body mt-2" style="font-family:monospace;background:var(--c-light);padding:3mm;border-radius:3px;">
+    I ≈ (t × d³ / 12) / s₁ &nbsp; (m⁴ per m width)<br>
+    Z ≈ I / (d/2) &nbsp; (m³ per m width)
+  </div>
+  <div class="body mt-2">Twisted cross bars contribute to composite stiffness in welded grating; manufacturer tests calibrate effective stiffness. Use Wiberg-released section moduli for contract calculations.</div>
+  <div class="h3 mt-3">Elastic bending stress</div>
+  <div class="body" style="font-family:monospace;background:var(--c-light);padding:3mm;border-radius:3px;">σ = M / Z<sub>eff</sub> &nbsp; (uniform moment M per unit width)</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>4</span></div>
+</div>
+
+<!-- ═══ PAGE 5: LOADS ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">DESIGN LOADS</div>
+  <div class="bar-accent"></div>
+  <div class="h3">Uniform load</div>
+  <div class="body">w (kN/m²) over tributary width. For bar strip model, equivalent line load q = w × s₁ (kN/m per bar).</div>
+  <div class="h3 mt-2">Concentrated / patch load</div>
+  <div class="body">Replace with static equivalent or use plate distribution width b<sub>eff</sub> per code (e.g. NAAMM guidance). For wheel loads, combine contact patch dimensions with span direction.</div>
+  <div class="h3 mt-2">Vehicular</div>
+  <div class="body">Define axle load, impact factor, multiple presence, and load placement that produces maximum moment in bearing bars. Heavy-duty meshes often govern on shear at bearing as well as flexure.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>5</span></div>
+</div>
+
+<!-- ═══ PAGE 6: DEFLECTION ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">DEFLECTION &amp; VIBRATION</div>
+  <div class="bar"></div>
+  <div class="body">For uniform load on a simply supported strip, central deflection δ ≈ 5 w L⁴ / (384 E I) (consistent units). Compare δ to span/200, span/250, or project limit.</div>
+  <div class="body mt-2">Pedestrian vibration: lightweight long spans may require frequency check; provide live load density and damping assumptions to Wiberg for guidance.</div>
+  <table class="tbl tbl-compact mt-3">
+    <thead><tr><th>Limit</th><th>Typical application</th></tr></thead>
+    <tbody>
+      <tr><td>L/200</td><td class="left-td">Industrial walkways, maintenance</td></tr>
+      <tr><td>L/250</td><td class="left-td">Architectural, sensitive equipment</td></tr>
+      <tr><td>L/300</td><td class="left-td">When specified by owner</td></tr>
+    </tbody>
+  </table>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>6</span></div>
+</div>
+
+<!-- ═══ PAGE 7–8: SAMPLE CALCS ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">SAMPLE CALCULATIONS</div>
+  <div class="bar"></div>
+  <div class="h3">Example 1 — Uniform load on 30×5 @ 30×100, L = 1200 mm</div>
+  <div class="body small">Given: w = 5 kN/m² service, s₁ = 0.03 m → q = 0.15 kN/m per bar. Look up <code>TABLE_E1_30MM</code> in <code>master-data1.js</code> for G505/30 row at span 1200 mm: compare U (÷100) and C (÷100) to required load; adjust mesh or span if inadequate.</div>
+  <div class="h3 mt-2">Example 2 — Deflection check</div>
+  <div class="body small">If I<sub>eff</sub> supplied as 2.1×10⁻⁶ m⁴/m, E = 200 GPa, L = 1.2 m, w = 4 kN/m², δ ≈ 2.9 mm = L/414 → satisfies L/250.</div>
+  <div class="h3 mt-2">Example 3 — Concentrated maintenance load</div>
+  <div class="body small">1 kN point load mid-span: M = PL/4 per bar strip after distributing through cross bars; compare to M<sub>all</sub> from manufacturer table for same geometry.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>7</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h2">SAMPLE CALCULATIONS (CONT.)</div>
+  <div class="bar"></div>
+  <div class="body">The three examples on page 7 are illustrative only. Contract design shall use:</div>
+  <ul class="body mt-2" style="margin-left:5mm;line-height:1.65;">
+    <li>Loads and factors from the applicable structural code (Eurocode, AISC, GB 50017, etc.).</li>
+    <li>Released section properties or load tables stamped for the project.</li>
+    <li>Peer review for cyclical, seismic, or fatigue-sensitive applications.</li>
+  </ul>
+  <div class="placeholder-img mt-4" style="height:40mm;">Sketch: simply supported span L, bearing direction</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>8</span></div>
+</div>
+
+<!-- ═══ PAGE 9: MARKING ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">MARKING &amp; IMPERIAL MAPPING</div>
+  <div class="bar-accent"></div>
+  <table class="tbl tbl-compact mt-2">
+    <thead><tr><th>Metric (mm)</th><th>Common imperial tag</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="center-td">30 × 100</td><td class="center-td">19-W-4 family</td><td class="left-td">Verify bar height separately</td></tr>
+      <tr><td class="center-td">40 × 100</td><td class="center-td">15-W-4 family</td><td class="left-td">Open mesh economy</td></tr>
+      <tr><td class="center-td">20 × 50</td><td class="center-td">Close mesh</td><td class="left-td">Ball / heel requirements</td></tr>
+      <tr><td class="center-td">34.3 × 50</td><td class="center-td">1-3/16″ c/c variants</td><td class="left-td">Heavy traffic</td></tr>
+    </tbody>
+  </table>
+  <div class="body mt-3">Always quote <strong>metric</strong> pitches and bar sizes on purchase orders to avoid rounding ambiguity.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>9</span></div>
+</div>
+
+<!-- ═══ PAGE 10: NOTE BEFORE TABLES ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">USING THE LOAD TABLES</div>
+  <div class="bar"></div>
+  <div class="body">Pages 11–20 list <strong>indicative</strong> YB/T Appendix E safe loads for press-welded steel grating. <strong>U</strong> = uniform load (kN/m²) with 50 mm crossbar pitch; <strong>C</strong> = line load (kN/m) with 100 mm crossbar pitch. Source arrays store values ×100 — this document shows ÷100 (see <code>master-data1.js</code>).</div>
+  <div class="body mt-2"><strong>Interpolation:</strong> Between spans, linear interpolation is acceptable for preliminary sizing only.</div>
+  <div class="body mt-2"><strong>Serrated:</strong> Apply factor f<sub>s</sub> from page 21 where noted.</div>
+  <div class="body mt-2"><strong>Span axis:</strong> 200–3000 mm in 200 mm steps (<code>SPANS_MM</code>).</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>10</span></div>
+</div>
+
+<!-- ═══ LANDSCAPE TABLES 11–20 (injected by build-master-html.mjs) ═══ -->
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 1 — YB/T E.1 · 30 mm pitch · 50 mm cross · U (kN/m²)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">39.9</td><td class="center-td">10.0</td><td class="center-td">4.4</td><td class="center-td">2.5</td><td class="center-td">1.6</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td></tr>
+<tr><td>60×5</td><td class="center-td">34</td><td class="center-td">8.5</td><td class="center-td">3.8</td><td class="center-td">2.1</td><td class="center-td">1.4</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">28.6</td><td class="center-td">7.1</td><td class="center-td">3.2</td><td class="center-td">1.8</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">23.6</td><td class="center-td">5.9</td><td class="center-td">2.6</td><td class="center-td">1.5</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">14.2</td><td class="center-td">3.5</td><td class="center-td">1.6</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">19.1</td><td class="center-td">4.8</td><td class="center-td">2.1</td><td class="center-td">1.2</td><td class="center-td">0.8</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">15.1</td><td class="center-td">3.8</td><td class="center-td">1.7</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">9.1</td><td class="center-td">2.3</td><td class="center-td">1</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">11.6</td><td class="center-td">2.9</td><td class="center-td">1.3</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">6.9</td><td class="center-td">1.7</td><td class="center-td">0.8</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">9.7</td><td class="center-td">2.4</td><td class="center-td">1.1</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">5.8</td><td class="center-td">1.4</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">5.9</td><td class="center-td">1.5</td><td class="center-td">0.7</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">3.5</td><td class="center-td">0.9</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">3.8</td><td class="center-td">0.9</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">2.3</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code> (YB/T Appendix E). <strong>U</strong> = uniform safe load (kN/m²), 50 mm crossbar pitch. Values stored ×100 in JS — display ÷100. Reference only; verify on stamped submittals.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>11</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 2 — YB/T E.1 · 30 mm pitch · 100 mm cross · C (kN/m)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">4.0</td><td class="center-td">2.0</td><td class="center-td">1.3</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td></tr>
+<tr><td>60×5</td><td class="center-td">3.4</td><td class="center-td">1.7</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">2.9</td><td class="center-td">1.4</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">2.4</td><td class="center-td">1.2</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">1.4</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">1.9</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">1.5</td><td class="center-td">0.8</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">0.9</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">1.1</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">0.7</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">1.0</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.0</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code>. <strong>C</strong> = line load (kN/m), 100 mm crossbar pitch. Stored ×100 in JS — display ÷100.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>12</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 3 — YB/T E.2 · 40 mm pitch · 50 mm cross · U (kN/m²)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">29.9</td><td class="center-td">7.5</td><td class="center-td">3.3</td><td class="center-td">1.9</td><td class="center-td">1.2</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td></tr>
+<tr><td>60×5</td><td class="center-td">25.5</td><td class="center-td">6.4</td><td class="center-td">2.8</td><td class="center-td">1.6</td><td class="center-td">1.0</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">21.4</td><td class="center-td">5.3</td><td class="center-td">2.4</td><td class="center-td">1.3</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">17.7</td><td class="center-td">4.4</td><td class="center-td">2.0</td><td class="center-td">1.1</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">10.6</td><td class="center-td">2.6</td><td class="center-td">1.2</td><td class="center-td">0.7</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">14.3</td><td class="center-td">3.6</td><td class="center-td">1.6</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">11.3</td><td class="center-td">2.8</td><td class="center-td">1.3</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">6.8</td><td class="center-td">1.7</td><td class="center-td">0.8</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">8.7</td><td class="center-td">2.2</td><td class="center-td">1.0</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">5.2</td><td class="center-td">1.3</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">7.3</td><td class="center-td">1.8</td><td class="center-td">0.8</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">4.3</td><td class="center-td">1.1</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">4.4</td><td class="center-td">1.1</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">2.6</td><td class="center-td">0.7</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">2.8</td><td class="center-td">0.7</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">1.7</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code> (YB/T Appendix E). <strong>U</strong> = uniform safe load (kN/m²), 50 mm crossbar pitch. Values stored ×100 in JS — display ÷100. Reference only; verify on stamped submittals.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>13</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 4 — YB/T E.2 · 40 mm pitch · 100 mm cross · C (kN/m)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">3.0</td><td class="center-td">1.5</td><td class="center-td">1.0</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td></tr>
+<tr><td>60×5</td><td class="center-td">2.5</td><td class="center-td">1.3</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">2.1</td><td class="center-td">1.1</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">1.8</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">1.1</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">1.4</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">1.1</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">0.7</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">0.9</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">0.7</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">0.3</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.0</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">0.3</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.0</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.0</td><td class="center-td">0.0</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code>. <strong>C</strong> = line load (kN/m), 100 mm crossbar pitch. Stored ×100 in JS — display ÷100.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>14</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 5 — YB/T E.3 · 20 mm pitch · 50 mm cross · U (kN/m²)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>60×5</td><td class="center-td">51</td><td class="center-td">12.8</td><td class="center-td">5.7</td><td class="center-td">3.2</td><td class="center-td">2.0</td><td class="center-td">1.4</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td></tr>
+<tr><td>55×5</td><td class="center-td">42.9</td><td class="center-td">10.7</td><td class="center-td">4.8</td><td class="center-td">2.7</td><td class="center-td">1.7</td><td class="center-td">1.2</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">35.4</td><td class="center-td">8.8</td><td class="center-td">3.9</td><td class="center-td">2.2</td><td class="center-td">1.4</td><td class="center-td">1.0</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">21.3</td><td class="center-td">5.3</td><td class="center-td">2.4</td><td class="center-td">1.3</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">28.7</td><td class="center-td">7.2</td><td class="center-td">3.2</td><td class="center-td">1.8</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">22.7</td><td class="center-td">5.7</td><td class="center-td">2.5</td><td class="center-td">1.4</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">13.6</td><td class="center-td">3.4</td><td class="center-td">1.5</td><td class="center-td">0.8</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">17.4</td><td class="center-td">4.3</td><td class="center-td">1.9</td><td class="center-td">1.1</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">10.4</td><td class="center-td">2.6</td><td class="center-td">1.1</td><td class="center-td">0.7</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">14.5</td><td class="center-td">3.6</td><td class="center-td">1.6</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">8.7</td><td class="center-td">2.2</td><td class="center-td">1.0</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">8.8</td><td class="center-td">2.2</td><td class="center-td">1.0</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">5.3</td><td class="center-td">1.3</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">5.7</td><td class="center-td">1.4</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">3.4</td><td class="center-td">0.8</td><td class="center-td">0.4</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code> (YB/T Appendix E). <strong>U</strong> = uniform safe load (kN/m²), 50 mm crossbar pitch. Values stored ×100 in JS — display ÷100. Reference only; verify on stamped submittals.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>15</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 6 — YB/T E.3 · 20 mm pitch · 100 mm cross · C (kN/m)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>60×5</td><td class="center-td">5.1</td><td class="center-td">2.5</td><td class="center-td">1.7</td><td class="center-td">1.3</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td></tr>
+<tr><td>55×5</td><td class="center-td">4.3</td><td class="center-td">2.1</td><td class="center-td">1.4</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">3.5</td><td class="center-td">1.8</td><td class="center-td">1.2</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">2.1</td><td class="center-td">1.1</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">2.9</td><td class="center-td">1.4</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">2.3</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">1.4</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">1.7</td><td class="center-td">0.9</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">1.0</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">1.4</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">0.9</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">0.9</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">0.5</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">0.6</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">0.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>master-data1.js</code>. <strong>C</strong> = line load (kN/m), 100 mm crossbar pitch. Stored ×100 in JS — display ÷100.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>16</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 7 — YB/T E.6 · Heavy-duty · U (kN/m²)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>G1508/40/100<br><span class="tiny">150×8</span></td><td class="center-td">255</td><td class="center-td">63.8</td><td class="center-td">28.3</td><td class="center-td">15.9</td><td class="center-td">10.2</td><td class="center-td">7.1</td><td class="center-td">5.2</td><td class="center-td">4.0</td><td class="center-td">3.1</td><td class="center-td">2.5</td><td class="center-td">2.1</td><td class="center-td">1.8</td><td class="center-td">1.5</td><td class="center-td">1.3</td><td class="center-td">1.1</td></tr>
+<tr><td>G1308/40/100<br><span class="tiny">130×8</span></td><td class="center-td">192</td><td class="center-td">47.9</td><td class="center-td">21.3</td><td class="center-td">12.0</td><td class="center-td">7.7</td><td class="center-td">5.3</td><td class="center-td">3.9</td><td class="center-td">3.0</td><td class="center-td">2.4</td><td class="center-td">1.9</td><td class="center-td">1.6</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">1.0</td><td class="center-td">0.8</td></tr>
+<tr><td>G1208/40/100<br><span class="tiny">120×8</span></td><td class="center-td">163</td><td class="center-td">40.8</td><td class="center-td">18.1</td><td class="center-td">10.2</td><td class="center-td">6.5</td><td class="center-td">4.5</td><td class="center-td">3.3</td><td class="center-td">2.5</td><td class="center-td">2.0</td><td class="center-td">1.6</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.7</td></tr>
+<tr><td>G1008/40/100<br><span class="tiny">100×8</span></td><td class="center-td">113</td><td class="center-td">28.3</td><td class="center-td">12.6</td><td class="center-td">7.1</td><td class="center-td">4.5</td><td class="center-td">3.1</td><td class="center-td">2.3</td><td class="center-td">1.8</td><td class="center-td">1.4</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td></tr>
+<tr><td>G908/40/100<br><span class="tiny">90×8</span></td><td class="center-td">91.8</td><td class="center-td">22.9</td><td class="center-td">10.2</td><td class="center-td">5.7</td><td class="center-td">3.7</td><td class="center-td">2.5</td><td class="center-td">1.9</td><td class="center-td">1.4</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td></tr>
+<tr><td>G808/40/100<br><span class="tiny">80×8</span></td><td class="center-td">72.5</td><td class="center-td">18.1</td><td class="center-td">8.1</td><td class="center-td">4.5</td><td class="center-td">2.9</td><td class="center-td">2.0</td><td class="center-td">1.5</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td></tr>
+<tr><td>G758/40/100<br><span class="tiny">75×8</span></td><td class="center-td">63.8</td><td class="center-td">15.9</td><td class="center-td">7.1</td><td class="center-td">4.0</td><td class="center-td">2.5</td><td class="center-td">1.8</td><td class="center-td">1.3</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td></tr>
+<tr><td>G756/30/100<br><span class="tiny">75×6 (30p)</span></td><td class="center-td">63.8</td><td class="center-td">15.9</td><td class="center-td">7.1</td><td class="center-td">4.0</td><td class="center-td">2.5</td><td class="center-td">1.8</td><td class="center-td">1.3</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td></tr>
+<tr><td>G756/40/100<br><span class="tiny">75×6 (40p)</span></td><td class="center-td">47.8</td><td class="center-td">11.9</td><td class="center-td">5.3</td><td class="center-td">3.0</td><td class="center-td">1.9</td><td class="center-td">1.3</td><td class="center-td">1.0</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td></tr>
+<tr><td>G706/30/100<br><span class="tiny">70×6 (30p)</span></td><td class="center-td">55.5</td><td class="center-td">13.9</td><td class="center-td">6.2</td><td class="center-td">3.5</td><td class="center-td">2.2</td><td class="center-td">1.5</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td></tr>
+<tr><td>G706/40/100<br><span class="tiny">70×6 (40p)</span></td><td class="center-td">41.6</td><td class="center-td">10.4</td><td class="center-td">4.6</td><td class="center-td">2.6</td><td class="center-td">1.7</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.2</td><td class="center-td">0.2</td><td class="center-td">0.2</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>TABLE_E6_HEAVY</code> — heavy press-welded, 8×8 mm crossbar. U (kN/m²), C (kN/m); stored ×100 in JS.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>17</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 8 — YB/T E.6 · Heavy-duty · C (kN/m)</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>G1508/40/100<br><span class="tiny">150×8</span></td><td class="center-td">25.5</td><td class="center-td">12.8</td><td class="center-td">8.5</td><td class="center-td">6.4</td><td class="center-td">5.1</td><td class="center-td">4.3</td><td class="center-td">3.6</td><td class="center-td">3.2</td><td class="center-td">2.8</td><td class="center-td">2.5</td><td class="center-td">2.3</td><td class="center-td">2.1</td><td class="center-td">2.0</td><td class="center-td">1.8</td><td class="center-td">1.7</td></tr>
+<tr><td>G1308/40/100<br><span class="tiny">130×8</span></td><td class="center-td">19.1</td><td class="center-td">9.6</td><td class="center-td">6.4</td><td class="center-td">4.8</td><td class="center-td">3.8</td><td class="center-td">3.2</td><td class="center-td">2.7</td><td class="center-td">2.4</td><td class="center-td">2.1</td><td class="center-td">1.9</td><td class="center-td">1.7</td><td class="center-td">1.6</td><td class="center-td">1.5</td><td class="center-td">1.4</td><td class="center-td">1.3</td></tr>
+<tr><td>G1208/40/100<br><span class="tiny">120×8</span></td><td class="center-td">16.3</td><td class="center-td">8.2</td><td class="center-td">5.4</td><td class="center-td">4.1</td><td class="center-td">3.3</td><td class="center-td">2.7</td><td class="center-td">2.3</td><td class="center-td">2.0</td><td class="center-td">1.8</td><td class="center-td">1.6</td><td class="center-td">1.5</td><td class="center-td">1.4</td><td class="center-td">1.3</td><td class="center-td">1.2</td><td class="center-td">1.1</td></tr>
+<tr><td>G1008/40/100<br><span class="tiny">100×8</span></td><td class="center-td">11.3</td><td class="center-td">5.7</td><td class="center-td">3.8</td><td class="center-td">2.8</td><td class="center-td">2.3</td><td class="center-td">1.9</td><td class="center-td">1.6</td><td class="center-td">1.4</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">1.0</td><td class="center-td">0.9</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.8</td></tr>
+<tr><td>G908/40/100<br><span class="tiny">90×8</span></td><td class="center-td">9.2</td><td class="center-td">4.6</td><td class="center-td">3.1</td><td class="center-td">2.3</td><td class="center-td">1.8</td><td class="center-td">1.5</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">1.0</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.7</td><td class="center-td">0.6</td></tr>
+<tr><td>G808/40/100<br><span class="tiny">80×8</span></td><td class="center-td">7.3</td><td class="center-td">3.6</td><td class="center-td">2.4</td><td class="center-td">1.8</td><td class="center-td">1.4</td><td class="center-td">1.2</td><td class="center-td">1.0</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td></tr>
+<tr><td>G758/40/100<br><span class="tiny">75×8</span></td><td class="center-td">6.4</td><td class="center-td">3.2</td><td class="center-td">2.1</td><td class="center-td">1.6</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td></tr>
+<tr><td>G756/30/100<br><span class="tiny">75×6 (30p)</span></td><td class="center-td">6.4</td><td class="center-td">3.2</td><td class="center-td">2.1</td><td class="center-td">1.6</td><td class="center-td">1.3</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td></tr>
+<tr><td>G756/40/100<br><span class="tiny">75×6 (40p)</span></td><td class="center-td">4.8</td><td class="center-td">2.4</td><td class="center-td">1.6</td><td class="center-td">1.2</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td></tr>
+<tr><td>G706/30/100<br><span class="tiny">70×6 (30p)</span></td><td class="center-td">5.5</td><td class="center-td">2.8</td><td class="center-td">1.9</td><td class="center-td">1.4</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.4</td></tr>
+<tr><td>G706/40/100<br><span class="tiny">70×6 (40p)</span></td><td class="center-td">4.2</td><td class="center-td">2.1</td><td class="center-td">1.4</td><td class="center-td">1.0</td><td class="center-td">0.8</td><td class="center-td">0.7</td><td class="center-td">0.6</td><td class="center-td">0.5</td><td class="center-td">0.5</td><td class="center-td">0.4</td><td class="center-td">0.4</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td><td class="center-td">0.3</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Source: <code>TABLE_E6_HEAVY</code> — heavy press-welded, 8×8 mm crossbar. U (kN/m²), C (kN/m); stored ×100 in JS.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>18</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 9 — YB/T E.1 · Deflection (mm) under U · 50 mm cross</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">0.11</td><td class="center-td">0.42</td><td class="center-td">0.95</td><td class="center-td">1.70</td><td class="center-td">2.65</td><td class="center-td">3.81</td><td class="center-td">5.22</td><td class="center-td">6.84</td><td class="center-td">8.70</td><td class="center-td">10.6</td><td class="center-td">12.8</td><td class="center-td">15.4</td><td class="center-td">18.2</td><td class="center-td">21.4</td><td class="center-td">24.2</td></tr>
+<tr><td>60×5</td><td class="center-td">0.11</td><td class="center-td">0.46</td><td class="center-td">1.03</td><td class="center-td">1.84</td><td class="center-td">2.89</td><td class="center-td">4.15</td><td class="center-td">5.66</td><td class="center-td">7.45</td><td class="center-td">9.28</td><td class="center-td">11.8</td><td class="center-td">14.3</td><td class="center-td">16.7</td><td class="center-td">20.2</td><td class="center-td">23.2</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">0.13</td><td class="center-td">0.50</td><td class="center-td">1.13</td><td class="center-td">2.00</td><td class="center-td">3.14</td><td class="center-td">4.53</td><td class="center-td">6.19</td><td class="center-td">8.04</td><td class="center-td">10.3</td><td class="center-td">12.6</td><td class="center-td">15.3</td><td class="center-td">18.0</td><td class="center-td">21.1</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">0.14</td><td class="center-td">0.55</td><td class="center-td">1.24</td><td class="center-td">2.20</td><td class="center-td">3.45</td><td class="center-td">4.97</td><td class="center-td">6.82</td><td class="center-td">8.78</td><td class="center-td">11.4</td><td class="center-td">13.9</td><td class="center-td">16.9</td><td class="center-td">20.3</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">0.14</td><td class="center-td">0.55</td><td class="center-td">1.24</td><td class="center-td">2.20</td><td class="center-td">3.43</td><td class="center-td">4.97</td><td class="center-td">6.65</td><td class="center-td">8.95</td><td class="center-td">11.2</td><td class="center-td">14.1</td><td class="center-td">16.4</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">0.15</td><td class="center-td">0.61</td><td class="center-td">1.38</td><td class="center-td">2.45</td><td class="center-td">3.83</td><td class="center-td">5.56</td><td class="center-td">7.62</td><td class="center-td">9.73</td><td class="center-td">12.4</td><td class="center-td">15.8</td><td class="center-td">18.4</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">0.17</td><td class="center-td">0.69</td><td class="center-td">1.54</td><td class="center-td">2.76</td><td class="center-td">4.31</td><td class="center-td">6.14</td><td class="center-td">8.37</td><td class="center-td">11.0</td><td class="center-td">13.9</td><td class="center-td">17.8</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">0.17</td><td class="center-td">0.69</td><td class="center-td">1.54</td><td class="center-td">2.74</td><td class="center-td">4.32</td><td class="center-td">6.25</td><td class="center-td">8.39</td><td class="center-td">11.2</td><td class="center-td">14.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">0.20</td><td class="center-td">0.79</td><td class="center-td">1.77</td><td class="center-td">3.16</td><td class="center-td">4.94</td><td class="center-td">7.17</td><td class="center-td">9.61</td><td class="center-td">12.9</td><td class="center-td">16.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">0.20</td><td class="center-td">0.79</td><td class="center-td">1.77</td><td class="center-td">3.14</td><td class="center-td">4.84</td><td class="center-td">7.11</td><td class="center-td">9.77</td><td class="center-td">12.0</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">0.22</td><td class="center-td">0.86</td><td class="center-td">1.94</td><td class="center-td">3.44</td><td class="center-td">5.35</td><td class="center-td">7.64</td><td class="center-td">10.4</td><td class="center-td">14.1</td><td class="center-td">16.8</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">0.21</td><td class="center-td">0.86</td><td class="center-td">1.93</td><td class="center-td">3.45</td><td class="center-td">5.41</td><td class="center-td">7.85</td><td class="center-td">10.1</td><td class="center-td">14.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">0.28</td><td class="center-td">1.10</td><td class="center-td">2.47</td><td class="center-td">4.35</td><td class="center-td">6.82</td><td class="center-td">9.92</td><td class="center-td">13.9</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">0.28</td><td class="center-td">1.10</td><td class="center-td">2.47</td><td class="center-td">4.43</td><td class="center-td">6.94</td><td class="center-td">9.35</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">0.34</td><td class="center-td">1.37</td><td class="center-td">3.05</td><td class="center-td">5.44</td><td class="center-td">8.73</td><td class="center-td">12.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">0.34</td><td class="center-td">1.37</td><td class="center-td">3.10</td><td class="center-td">5.53</td><td class="center-td">8.76</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Deflection (mm) under the tabulated safe U or C for the same row. <code>D_U</code> / <code>D_C</code> in <code>master-data1.js</code>.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>19</span></div>
+</div>
+
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 10 — YB/T E.1 · Deflection (mm) under C · 100 mm cross</div>
+  <table class="tbl tbl-compact mt-1"><thead><tr><th>Bar</th><th>200</th><th>400</th><th>600</th><th>800</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th><th>2000</th><th>2200</th><th>2400</th><th>2600</th><th>2800</th><th>3000</th></tr></thead><tbody><tr><td>65×5</td><td class="center-td">0.08</td><td class="center-td">0.34</td><td class="center-td">0.76</td><td class="center-td">1.35</td><td class="center-td">2.11</td><td class="center-td">3.06</td><td class="center-td">4.21</td><td class="center-td">5.43</td><td class="center-td">6.98</td><td class="center-td">8.54</td><td class="center-td">10.6</td><td class="center-td">12.7</td><td class="center-td">14.8</td><td class="center-td">17.3</td><td class="center-td">20.0</td></tr>
+<tr><td>60×5</td><td class="center-td">0.09</td><td class="center-td">0.37</td><td class="center-td">0.83</td><td class="center-td">1.48</td><td class="center-td">2.31</td><td class="center-td">3.30</td><td class="center-td">4.52</td><td class="center-td">5.93</td><td class="center-td">7.48</td><td class="center-td">9.49</td><td class="center-td">11.2</td><td class="center-td">13.7</td><td class="center-td">16.3</td><td class="center-td">19.0</td><td class="center-td">—</td></tr>
+<tr><td>55×5</td><td class="center-td">0.10</td><td class="center-td">0.40</td><td class="center-td">0.90</td><td class="center-td">1.60</td><td class="center-td">2.52</td><td class="center-td">3.60</td><td class="center-td">4.89</td><td class="center-td">6.43</td><td class="center-td">8.16</td><td class="center-td">10.2</td><td class="center-td">12.2</td><td class="center-td">14.7</td><td class="center-td">17.2</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×5</td><td class="center-td">0.11</td><td class="center-td">0.44</td><td class="center-td">0.99</td><td class="center-td">1.77</td><td class="center-td">2.77</td><td class="center-td">3.99</td><td class="center-td">5.39</td><td class="center-td">7.11</td><td class="center-td">9.14</td><td class="center-td">11.2</td><td class="center-td">13.7</td><td class="center-td">16.3</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>50×3</td><td class="center-td">0.11</td><td class="center-td">0.44</td><td class="center-td">0.99</td><td class="center-td">1.75</td><td class="center-td">2.75</td><td class="center-td">3.92</td><td class="center-td">5.45</td><td class="center-td">6.97</td><td class="center-td">8.82</td><td class="center-td">11.4</td><td class="center-td">13.1</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>45×5</td><td class="center-td">0.12</td><td class="center-td">0.49</td><td class="center-td">1.09</td><td class="center-td">1.94</td><td class="center-td">3.07</td><td class="center-td">4.35</td><td class="center-td">6.06</td><td class="center-td">7.76</td><td class="center-td">10.2</td><td class="center-td">12.7</td><td class="center-td">15.3</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×5</td><td class="center-td">0.14</td><td class="center-td">0.55</td><td class="center-td">1.23</td><td class="center-td">2.17</td><td class="center-td">3.46</td><td class="center-td">5.01</td><td class="center-td">6.73</td><td class="center-td">8.69</td><td class="center-td">11.1</td><td class="center-td">14.4</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>40×3</td><td class="center-td">0.14</td><td class="center-td">0.55</td><td class="center-td">1.24</td><td class="center-td">2.16</td><td class="center-td">3.46</td><td class="center-td">5.02</td><td class="center-td">6.44</td><td class="center-td">8.87</td><td class="center-td">11.6</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×5</td><td class="center-td">0.16</td><td class="center-td">0.62</td><td class="center-td">1.40</td><td class="center-td">2.46</td><td class="center-td">3.97</td><td class="center-td">5.70</td><td class="center-td">7.69</td><td class="center-td">10.1</td><td class="center-td">12.5</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>35×3</td><td class="center-td">0.16</td><td class="center-td">0.62</td><td class="center-td">1.41</td><td class="center-td">2.49</td><td class="center-td">3.75</td><td class="center-td">5.52</td><td class="center-td">7.25</td><td class="center-td">9.71</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×5</td><td class="center-td">0.17</td><td class="center-td">0.68</td><td class="center-td">1.55</td><td class="center-td">2.76</td><td class="center-td">4.30</td><td class="center-td">6.30</td><td class="center-td">8.21</td><td class="center-td">11.4</td><td class="center-td">13.7</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>32×3</td><td class="center-td">0.17</td><td class="center-td">0.69</td><td class="center-td">1.53</td><td class="center-td">2.69</td><td class="center-td">4.16</td><td class="center-td">5.93</td><td class="center-td">8.44</td><td class="center-td">11.2</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×5</td><td class="center-td">0.22</td><td class="center-td">0.87</td><td class="center-td">1.93</td><td class="center-td">3.39</td><td class="center-td">5.25</td><td class="center-td">7.50</td><td class="center-td">10.7</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>25×3</td><td class="center-td">0.22</td><td class="center-td">0.85</td><td class="center-td">1.86</td><td class="center-td">3.24</td><td class="center-td">5.58</td><td class="center-td">7.00</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×5</td><td class="center-td">0.27</td><td class="center-td">1.05</td><td class="center-td">2.39</td><td class="center-td">4.28</td><td class="center-td">6.57</td><td class="center-td">9.85</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr>
+<tr><td>20×3</td><td class="center-td">0.27</td><td class="center-td">1.07</td><td class="center-td">2.32</td><td class="center-td">3.98</td><td class="center-td">6.30</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td><td class="center-td">—</td></tr></tbody></table>
+  <div class="tiny italic mt-1">Deflection (mm) under the tabulated safe U or C for the same row. <code>D_U</code> / <code>D_C</code> in <code>master-data1.js</code>.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>20</span></div>
+</div>
+
+<!-- ═══ PAGE 21–22: SERRATED + AL ═══ -->
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 11 — SERRATED CONVERSION (INDICATIVE)</div>
+  <table class="tbl tbl-compact mt-2">
+    <thead><tr><th>Factor</th><th>Plain base capacity</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td class="center-td">f<sub>s</sub> = 0.90</td><td class="left-td">Multiply bending capacity by 0.90</td><td class="left-td">Net root thickness in serrations</td></tr>
+      <tr><td class="center-td">f<sub>s</sub> = 0.85</td><td class="left-td">Conservative for heavy serration</td><td class="left-td">Use when project spec requires</td></tr>
+    </tbody>
+  </table>
+  <div class="body mt-3">Final f<sub>s</sub> taken from Wiberg test data for the ordered bar and serration tool.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>21</span></div>
+</div>
+
+<div class="page landscape">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h3">TABLE 12 — ALUMINUM 6063-T6 · TYPICAL UL (kN/m²) · 30×100</div>
+  <table class="tbl tbl-compact mt-1">
+    <thead>
+      <tr><th>Bar</th><th>600</th><th>750</th><th>900</th><th>1000</th><th>1200</th><th>1400</th><th>1600</th><th>1800</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>25×3</td><td class="center-td">3.1</td><td class="center-td">2.0</td><td class="center-td">1.4</td><td class="center-td">1.1</td><td class="center-td">0.8</td><td class="center-td">0.6</td><td class="center-td">0.4</td><td class="center-td">0.3</td></tr>
+      <tr><td>30×5</td><td class="center-td">6.2</td><td class="center-td">4.0</td><td class="center-td">2.8</td><td class="center-td">2.2</td><td class="center-td">1.5</td><td class="center-td">1.1</td><td class="center-td">0.9</td><td class="center-td">0.7</td></tr>
+      <tr><td>40×5</td><td class="center-td">8.3</td><td class="center-td">5.3</td><td class="center-td">3.7</td><td class="center-td">3.0</td><td class="center-td">2.1</td><td class="center-td">1.5</td><td class="center-td">1.2</td><td class="center-td">0.9</td></tr>
+    </tbody>
+  </table>
+  <div class="tiny italic mt-2">Indicative catalog values (not from YB/T steel tables). E ≈ 70 GPa; deflection often governs. For McNICHOLS / NAAMM aluminum series data see <code>MCNICHOLS_TREAD_SPECS</code> and related exports in <code>master-data1.js</code>.</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>22</span></div>
+</div>
+
+<!-- ═══ PAGE 23–24: INSTALLATION ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">INSTALLATION (1/2)</div>
+  <div class="bar"></div>
+  <div class="body">Panels shall be set level with bearing bars spanning as indicated on drawings. Minimum bearing 25 mm on structural steel unless engineered otherwise. Torque clip bolts to Wiberg schedule using calibrated wrench.</div>
+  <div class="placeholder-img mt-3" style="height:42mm;">Detail: clip, bolt, beam flange</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>23</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">INSTALLATION (2/2)</div>
+  <div class="bar"></div>
+  <div class="body">Field welding of galvanized panels: use low-zinc procedures; repair coating per ASTM A780. Stainless: avoid iron contamination; clean weld discoloration per spec.</div>
+  <div class="body mt-2">Do not reduce effective span by landing panels on temporary shims that will be removed.</div>
+  <div class="placeholder-img mt-3" style="height:45mm;">Detail: banding termination, kick plate</div>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>24</span></div>
+</div>
+
+<!-- ═══ PAGE 25: CHECKLIST ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">SPECIFICATION CHECKLIST</div>
+  <div class="bar-accent"></div>
+  <table class="tbl tbl-compact mt-2">
+    <tbody>
+      <tr><td>☐</td><td class="left-td">Construction (W / P / HD) and mesh (s₁ × s₂)</td></tr>
+      <tr><td>☐</td><td class="left-td">Bearing bar size, material grade, surface type</td></tr>
+      <tr><td>☐</td><td class="left-td">Finish system and coating DFT / galvanizing standard</td></tr>
+      <tr><td>☐</td><td class="left-td">Panel plan dimensions, cut-outs, banding, trim</td></tr>
+      <tr><td>☐</td><td class="left-td">Support layout, span, design loads, deflection limit</td></tr>
+      <tr><td>☐</td><td class="left-td">Clip model, spacing, bolt material, corrosion class</td></tr>
+      <tr><td>☐</td><td class="left-td">Applicable standards (NAAMM, EN, GB) and inspection level</td></tr>
+    </tbody>
+  </table>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>25</span></div>
+</div>
+
+<!-- ═══ PAGE 26: STANDARDS ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">STANDARDS REFERENCE</div>
+  <div class="bar"></div>
+  <ul class="body mt-2" style="line-height:1.7;margin-left:5mm;">
+    <li>NAAMM MBG 531 — Metal Bar Grating Manual</li>
+    <li>EN ISO 24637 — Industrial flooring and stair treads (steel gratings)</li>
+    <li>YB/T 4001.1 — Steel grating (China, where cited)</li>
+    <li>ASTM A123 / EN ISO 1461 — Hot-dip galvanizing</li>
+    <li>EN 1090 — Execution class for structural steel (when required)</li>
+  </ul>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>26</span></div>
+</div>
+
+<!-- ═══ PAGE 27: GLOSSARY ═══ -->
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">Technical Manual 2026</span></div>
+  <div class="h1">GLOSSARY &amp; NOTATION</div>
+  <div class="bar"></div>
+  <table class="tbl tbl-compact mt-2">
+    <tbody>
+      <tr><td>L</td><td class="left-td">Clear span between supports (mm)</td></tr>
+      <tr><td>s₁ , s₂</td><td class="left-td">Bearing pitch, cross pitch (mm c/c)</td></tr>
+      <tr><td>w</td><td class="left-td">Uniform load (kN/m²)</td></tr>
+      <tr><td>U , C</td><td class="left-td">YB/T safe uniform load (kN/m²) and line load (kN/m) — see tables</td></tr>
+      <tr><td>q</td><td class="left-td">Line load on single bar (kN/m)</td></tr>
+      <tr><td>δ</td><td class="left-td">Deflection (mm)</td></tr>
+      <tr><td>Z<sub>eff</sub></td><td class="left-td">Effective section modulus per manufacturer</td></tr>
+    </tbody>
+  </table>
+  <div class="page-footer"><span>www.wiberg-grating.com</span><span>27</span></div>
+</div>
+
+<!-- ═══ PAGE 28: BACK COVER ═══ -->
+<div class="page" style="padding:0;">
+  <div style="background:var(--c-navy);width:100%;min-height:var(--page-h);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center;padding:18mm;">
+    <div style="font-size:2.8rem;font-weight:900;">WIBERG</div>
+    <div style="opacity:0.75;margin-top:4mm;">Technical support &amp; stamped calculations on request.</div>
+    <div style="margin-top:14mm;font-size:1.05rem;line-height:2;">
+      <div>sales@wiberg-grating.com</div>
+      <div>www.wiberg-grating.com</div>
+    </div>
+    <div style="margin-top:auto;opacity:0.35;font-size:0.7rem;">© 2026 Wiberg · Technical Manual · Rev. 2026-01 · Data: master-data1.js</div>
+  </div>
+</div>
+
+</body>
+</html>

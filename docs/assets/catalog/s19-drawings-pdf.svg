@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 170" role="img" aria-labelledby="t">
+  <title id="t">Drawing deliverables</title>
+  <rect width="380" height="170" fill="#ffffff"/>
+  <rect x="60" y="45" width="100" height="110" fill="#fff" stroke="#1a2332"/>
+  <text x="85" y="85" font-family="Arial,sans-serif" font-size="11" fill="#c0392b">PDF</text>
+  <text x="70" y="105" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">Panels � grid</text>
+  <text x="70" y="118" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">Cut-outs</text>
+  <rect x="180" y="45" width="100" height="110" fill="#fff" stroke="#1a2332" stroke-dasharray="4 2"/>
+  <text x="200" y="85" font-family="Arial,sans-serif" font-size="11" fill="#2b6cb0">CAD</text>
+  <text x="190" y="105" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">DWG/DXF</text>
+  <text x="190" y="118" font-family="Arial,sans-serif" font-size="8" fill="#4a5568">if available</text>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Drawings for review</text>
+  <text x="20" y="162" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Cite specs; name certificates up front</text>
+</svg>

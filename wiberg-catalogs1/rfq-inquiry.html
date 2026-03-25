@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WIBERG 询价单 · RFQ Form</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<!-- 四套册之一：询价册 — 客户填写后回传销售 -->
+
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">询价单 RFQ</span></div>
+  <div class="h1" style="margin-top:2mm;">询价单 · REQUEST FOR QUOTATION</div>
+  <div class="bar-accent"></div>
+  <div class="body">请尽量填写下列项目；不确定处可写「待议」或留空，我司销售与工程会与您确认。可打印手写，或在 PDF 中填写后回传。</div>
+  <div class="body small italic">Please complete as much as possible. Our team will clarify any open items.</div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">1. 客户信息 · Customer</div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>公司 Company</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>联系人 Contact</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>电话 Tel</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>邮箱 Email</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-row">
+      <div class="rfq-item" style="flex:1 1 100%;"><label>项目名称 / 地址 Project &amp; site</label><div class="rfq-line"></div></div>
+    </div>
+  </div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">2. 产品类型（可勾选）· Product type</div>
+    <div class="body small" style="line-height:2;">
+      <label><input type="checkbox" class="rfq-check"> 压焊钢格栅 Press-welded grating</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 压锁钢格栅 Press-locked</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 重型 Heavy-duty</label><br>
+      <label><input type="checkbox" class="rfq-check"> 踏步板 Stair treads</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 沟盖板 Trench / drain covers</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> FRP 格栅 FRP grating</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 安装夹 / 配件 Clips &amp; accessories</label><br>
+      <label><input type="checkbox" class="rfq-check"> 不锈钢 Stainless</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 铝合金 Aluminum</label> &nbsp;
+      <label><input type="checkbox" class="rfq-check"> 其他 Other：</label><div class="rfq-line" style="display:inline-block;width:45%;vertical-align:middle;margin-left:2mm;"></div>
+    </div>
+  </div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">3. 规格与数量 · Specs &amp; quantity</div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>承载扁钢间距 s₁ (mm)</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>横杆间距 s₂ (mm)</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>扁钢尺寸 Bar (高×厚 mm)</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>表面 Plain / 齿型 Serrated</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>材质 Material (Q235B / S355 / SS304…)</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>表面处理 Finish (HDG / 喷漆 / 不处理…)</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>单件尺寸或面积 Panel size / area</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>数量 Qty (件 / m²)</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-item" style="margin-top:2mm;"><label>荷载 / 跨度 / 使用场合（如有）Loads, span, duty class</label><div class="rfq-line rfq-line-tall"></div></div>
+  </div>
+
+  <div class="page-footer"><span>www.wiberg-grating.com &nbsp;|&nbsp; sales@wiberg-grating.com</span><span>1</span></div>
+</div>
+
+<div class="page">
+  <div class="page-header"><span class="logo-text">WIBERG</span><span class="doc-type">询价单 RFQ</span></div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">4. 图纸与附件 · Drawings</div>
+    <div class="body small">若有平面图、节点或参考照片，请说明文件名或另附邮件发送。</div>
+    <div class="rfq-line rfq-line-tall"></div>
+  </div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">5. 交付与标准 · Delivery &amp; standards</div>
+    <div class="rfq-row">
+      <div class="rfq-item"><label>希望交货期 Required date</label><div class="rfq-line"></div></div>
+      <div class="rfq-item"><label>目的国 / 港口 Destination</label><div class="rfq-line"></div></div>
+    </div>
+    <div class="rfq-item"><label>须符合的标准或认证（CE、ASTM、YB/T…）</label><div class="rfq-line"></div></div>
+  </div>
+
+  <div class="rfq-section">
+    <div class="rfq-section-title">6. 其他说明 · Notes</div>
+    <div class="rfq-line rfq-line-tall"></div>
+    <div class="rfq-line rfq-line-tall"></div>
+  </div>
+
+  <div class="rfq-section mt-3">
+    <div class="rfq-row">
+      <div class="rfq-item"><label>客户签字 / 日期 Signature / Date</label><div class="rfq-line" style="min-height:12mm;"></div></div>
+    </div>
+  </div>
+
+  <div class="bar-thin mt-4"></div>
+  <div class="tiny rfq-hint">内部：收到后登记编号 · 技术册供内部校核荷载与构造；产品册 / 单页 datasheet 可作选型参考。</div>
+
+  <div class="page-footer"><span>www.wiberg-grating.com &nbsp;|&nbsp; sales@wiberg-grating.com</span><span>2</span></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" role="img" aria-labelledby="t">
+  <title id="t">Zinc coating cross section</title>
+  <rect width="360" height="200" fill="#ffffff"/>
+  <text x="24" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Coating build (schematic section)</text>
+  <rect x="40" y="80" width="280" height="40" fill="#6b7580" stroke="#1a2332"/>
+  <rect x="40" y="60" width="280" height="20" fill="#b8c4d0" stroke="#1a2332"/>
+  <text x="48" y="74" font-family="Arial,sans-serif" font-size="10" fill="#1a2332">Zinc layer (not to scale)</text>
+  <text x="48" y="104" font-family="Arial,sans-serif" font-size="10" fill="#ffffff">Steel substrate</text>
+  <text x="40" y="175" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Vent/drain details follow shop practice on the order</text>
+</svg>

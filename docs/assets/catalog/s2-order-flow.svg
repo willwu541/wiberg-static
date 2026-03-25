@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" role="img" aria-labelledby="t">
+  <title id="t">Drawing standard quotation flow</title>
+  <rect width="400" height="160" fill="#ffffff"/>
+  <rect x="30" y="55" width="90" height="50" rx="3" fill="#f4f6f9" stroke="#1e3a5f" stroke-width="1.5"/>
+  <text x="45" y="82" font-family="Arial,sans-serif" font-size="10" fill="#1a2332">Drawings</text>
+  <path d="M125 80 L155 80" stroke="#c9a227" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="160" y="55" width="90" height="50" rx="3" fill="#f4f6f9" stroke="#1e3a5f" stroke-width="1.5"/>
+  <text x="175" y="82" font-family="Arial,sans-serif" font-size="10" fill="#1a2332">Standards</text>
+  <path d="M255 80 L285 80" stroke="#c9a227" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="290" y="55" width="85" height="50" rx="3" fill="#e8f1f8" stroke="#2b6cb0" stroke-width="1.5"/>
+  <text x="300" y="82" font-family="Arial,sans-serif" font-size="10" fill="#1a2332">Quotation</text>
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9a227"/></marker></defs>
+  <text x="30" y="35" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Scope confirmation before manufacture</text>
+  <text x="30" y="130" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Documentation issued per contract</text>
+</svg>

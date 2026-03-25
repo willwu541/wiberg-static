@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220" role="img" aria-labelledby="t">
+  <title id="t">Saddle clip on bearing bar and flange</title>
+  <rect width="360" height="220" fill="#ffffff"/>
+  <rect x="200" y="130" width="120" height="18" fill="#8a96a8" stroke="#1a2332"/>
+  <rect x="80" y="85" width="14" height="63" fill="#d8dee8" stroke="#1a2332"/>
+  <path d="M70 100 L95 85 L110 100 L100 100 L100 120 L80 120 L80 100 Z" fill="none" stroke="#2b6cb0" stroke-width="2"/>
+  <line x1="100" y1="110" x2="200" y2="110" stroke="#1a2332" stroke-dasharray="3 2"/>
+  <circle cx="195" cy="110" r="5" fill="#a0a8b0" stroke="#1a2332"/>
+  <text x="24" y="32" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Saddle clip  bolt to support</text>
+  <text x="24" y="200" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Non-welded retention; removable panels when specified</text>
+</svg>

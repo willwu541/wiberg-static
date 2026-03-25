@@ -1,0 +1,16 @@
+{
+  "name": "wiberg-catalogs1",
+  "version": "1.0.0",
+  "description": "| 册子 | 文件 | 干什么 | |------|------|--------| | **总册** | `general-brochure.html` | **约 10 页**：封面、公司简介、六大理由、产品（两页）、**应用领域**（6 行业）、**典型场景**（6 应用）、快速选型、合作流程、联系方式；插图用 `../assets/images/solutions/` 与 `../docs/assets/catalog/` | | **产品册** | `product-catalog.html` | 各产品线介绍、规格、应用（可继续往厚了写） | | **钢格板专册** | 已迁移到独立站 `downloads/steel-grating-catalog/index.html`；由 `node build-site-steel-grating.mjs` 从 `master-data1.js` 生成 | | **技术册** | `technical-manual.html` | 设计假定、公式说明、**荷载与挠度表**、安装与标准 | | **询价册** | `rfq-inquiry.html` | **给客户填的询价单**，打印或填 PDF 回传 |",
+  "main": "export-pdf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "pptxgenjs": "^4.0.1"
+  }
+}

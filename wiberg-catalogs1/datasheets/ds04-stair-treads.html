@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DS-04 Steel Grating Stair Treads — WIBERG Datasheet</title>
+  <link rel="stylesheet" href="../shared.css">
+  <style>
+    .page { padding: 8mm 10mm; }
+    .page-footer { bottom: 8mm; left: 10mm; right: 10mm; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="ds-header">
+    <div>
+      <div class="brand">WIBERG</div>
+      <div class="brand-sub">Industrial Grating Solutions</div>
+    </div>
+    <div>
+      <div class="ds-label">DATASHEET</div>
+      <div class="ds-num">DS-04 Rev.A</div>
+    </div>
+  </div>
+  <div class="bar"></div>
+
+  <div class="h2" style="margin-top:2mm;">STEEL GRATING STAIR TREADS</div>
+  <div class="small italic" style="color:var(--c-dark);margin-bottom:4mm;">Types T1–T6 — Welded or bolted carriers; plain, checker, or abrasive nosing options</div>
+
+  <div class="flex gap-4">
+
+    <div class="w-55">
+      <div class="bold navy small mb-1">SPECIFICATIONS</div>
+      <table class="spec-tbl">
+        <tr><td>TA (YB/T)</td><td>Welded to stringer — <code>STAIR_TREAD_TYPES.TA</code> in <code>master-data1.js</code></td></tr>
+        <tr><td>TB (YB/T)</td><td>Bolted M12 — <code>STAIR_TREAD_TYPES.TB</code></td></tr>
+        <tr><td>T1–T6 (catalog)</td><td>T1–T3 welded + none/checker/abrasive nosing; T4–T6 bolted + same nosing options — align with TA/TB on shop drawings</td></tr>
+        <tr><td>Material</td><td>Carbon steel grating + mild steel carriers; stainless on request</td></tr>
+        <tr><td>Tread width</td><td>125–325 mm typical (custom)</td></tr>
+        <tr><td>Length (R–R)</td><td>Per stair geometry; 600–1500 mm common (shop-drawn)</td></tr>
+        <tr><td>Stringer holes</td><td>Pre-drilled to GA; bolt circles matched to stringer thickness</td></tr>
+        <tr><td>Grating insert</td><td>Match platform mesh (e.g. W-30-100) for appearance and stock</td></tr>
+        <tr><td>Surface</td><td>Plain or serrated grating; nosing independent of grating surface</td></tr>
+        <tr><td>Finish</td><td>HDG after fab / paint system / SS pickled</td></tr>
+        <tr><td>Max span note</td><td>Limiting span is a function of mesh, load, and fixings — request Wiberg calculation</td></tr>
+        <tr><td>YB/T §5 loads</td><td>1.5 kN concentrated test, 4.4 kN ultimate, δ ≤ min(L/300,6 mm) — <code>STAIR_TREAD_LOAD_REQUIREMENTS</code></td></tr>
+        <tr><td>Naming</td><td>Pattern <code>STAIR_TREAD_NAMING</code> e.g. TB-325/30/100-800×275</td></tr>
+      </table>
+    </div>
+
+    <div class="w-45">
+      <div class="placeholder-img" style="height:30mm;">Product Photo:<br>Grating Stair Tread</div>
+      <div style="height:3mm;"></div>
+      <div class="placeholder-img" style="height:22mm;">Diagram:<br>End Plate + Nosing Detail</div>
+      <div style="height:3mm;"></div>
+      <div class="bold accent small">How to Specify:</div>
+      <div class="bold navy" style="font-size:0.95rem;margin-top:1mm;">Tread T4, W-30-100, 30×5,<br>245mm wide, 1200mm span,<br>Checkered Plate Nosing, HDG</div>
+      <div class="tiny mt-1">= Bolted type T4, welded mesh designation, bearing bar size, tread width, clear span, nosing type, galvanized</div>
+    </div>
+
+  </div>
+
+  <div class="bold navy small mt-3 mb-1">COMMON EXAMPLES (GRATING INSERT PARAMETERS)</div>
+  <table class="tbl tbl-compact">
+    <thead>
+      <tr>
+        <th>Model</th><th>H</th><th>T</th><th>Bar P</th><th>Cross P</th>
+        <th>XBar</th><th>Wt kg/m²</th><th>Open%</th><th>Ball</th><th>Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ST-T1-200-900</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~30</td><td class="center-td">81%</td><td class="center-td">No</td><td class="center-td">T1</td></tr>
+      <tr><td>ST-T2-250-1000</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~32</td><td class="center-td">80%</td><td class="center-td">No</td><td class="center-td">T2</td></tr>
+      <tr><td>ST-T3-250-1000</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~34</td><td class="center-td">79%</td><td class="center-td">No</td><td class="center-td">T3</td></tr>
+      <tr><td>ST-T4-245-1200</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~30</td><td class="center-td">81%</td><td class="center-td">No</td><td class="center-td">T4</td></tr>
+      <tr><td>ST-T5-280-1100</td><td class="center-td">32</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~33</td><td class="center-td">81%</td><td class="center-td">No</td><td class="center-td">T5</td></tr>
+      <tr><td>ST-T6-300-1200</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~35</td><td class="center-td">78%</td><td class="center-td">No</td><td class="center-td">T6</td></tr>
+      <tr><td>ST-T3-250-850-CM</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">20</td><td class="center-td">50</td><td class="center-td">6T</td><td class="center-td">~45</td><td class="center-td">65%</td><td class="center-td">20mm</td><td class="center-td">T3</td></tr>
+      <tr><td>ST-T4-280-1000-HD</td><td class="center-td">40</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">8T</td><td class="center-td">~39</td><td class="center-td">80%</td><td class="center-td">No</td><td class="center-td">T4</td></tr>
+      <tr><td>ST-T6-325-1500</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~30</td><td class="center-td">81%</td><td class="center-td">No</td><td class="center-td">T6</td></tr>
+      <tr><td>ST-SS316L-T4-250</td><td class="center-td">30</td><td class="center-td">5</td><td class="center-td">30</td><td class="center-td">100</td><td class="center-td">6T</td><td class="center-td">~30</td><td class="center-td">81%</td><td class="center-td">No</td><td class="center-td">SS</td></tr>
+    </tbody>
+  </table>
+  <div class="bold navy small mt-2 mb-1">TB END PLATE — HOLE CENTRE A (TABLE 1, YB/T 4001.3)</div>
+  <table class="tbl tbl-compact">
+    <thead><tr><th>Plate length T mm</th><th>Hole centre A mm</th></tr></thead>
+    <tbody>
+      <tr><td class="center-td">125</td><td class="center-td">45</td></tr>
+      <tr><td class="center-td">155–185</td><td class="center-td">75</td></tr>
+      <tr><td class="center-td">215–245</td><td class="center-td">100</td></tr>
+      <tr><td class="center-td">275–305</td><td class="center-td">150</td></tr>
+      <tr><td class="center-td">&gt;305</td><td class="center-td">200</td></tr>
+    </tbody>
+  </table>
+  <div class="tiny italic mt-1">Source: <code>TB_HOLE_SPACING</code>. Example tread rows above are illustrative. Wt includes grating insert only. Values for reference only. Contact Wiberg for code compliance and stamped calcs.</div>
+
+  <div class="page-footer">
+    <span>www.wiberg-grating.com &nbsp;|&nbsp; sales@wiberg-grating.com &nbsp;|&nbsp; ISO 9001 &nbsp;|&nbsp; CE Certified</span>
+    <span>Specifications subject to change. Rev. 2026-01.</span>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

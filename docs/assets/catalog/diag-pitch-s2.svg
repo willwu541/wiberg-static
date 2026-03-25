@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 210" width="400" height="210" role="img" aria-labelledby="t">
+  <title id="t">Cross bar pitch s2</title>
+  <rect width="400" height="210" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Cross bar pitch (c/c)  s�</text>
+  <rect x="50" y="70" width="300" height="18" fill="#d8dee8" stroke="#1a2332"/>
+  <rect x="50" y="100" width="300" height="18" fill="#d8dee8" stroke="#1a2332"/>
+  <rect x="50" y="130" width="300" height="18" fill="#d8dee8" stroke="#1a2332"/>
+  <rect x="50" y="70" width="18" height="78" fill="#b8c2ce" stroke="#1a2332"/>
+  <rect x="100" y="70" width="18" height="78" fill="#b8c2ce" stroke="#1a2332"/>
+  <rect x="150" y="70" width="18" height="78" fill="#b8c2ce" stroke="#1a2332"/>
+  <line x1="68" y1="165" x2="118" y2="165" stroke="#c9a227" stroke-width="1.5"/>
+  <line x1="68" y1="160" x2="68" y2="170" stroke="#c9a227" stroke-width="1.5"/>
+  <line x1="118" y1="160" x2="118" y2="170" stroke="#c9a227" stroke-width="1.5"/>
+  <text x="78" y="182" font-family="Arial,sans-serif" font-size="14" fill="#1a2332">s�</text>
+  <text x="200" y="55" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">Measured along bearing-bar direction (mm)</text>
+</svg>

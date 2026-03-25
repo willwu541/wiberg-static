@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170" role="img" aria-labelledby="t">
+  <title id="t">RFQ data blocks</title>
+  <rect width="400" height="170" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Minimum RFQ fields (checklist)</text>
+  <rect x="25" y="45" width="110" height="28" fill="#e8f1f8" stroke="#2b6cb0"/><text x="35" y="63" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Construction</text>
+  <rect x="145" y="45" width="110" height="28" fill="#e8f1f8" stroke="#2b6cb0"/><text x="155" y="63" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Pitches s� s�</text>
+  <rect x="265" y="45" width="110" height="28" fill="#e8f1f8" stroke="#2b6cb0"/><text x="275" y="63" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Finish</text>
+  <rect x="25" y="85" width="170" height="28" fill="#f4f6f9" stroke="#1e3a5f"/><text x="35" y="103" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Panel + span direction</text>
+  <rect x="205" y="85" width="170" height="28" fill="#f4f6f9" stroke="#1e3a5f"/><text x="215" y="103" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Banding / cut-outs / qty</text>
+  <text x="20" y="150" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Use consistent s�/s� naming across drawing set</text>
+</svg>

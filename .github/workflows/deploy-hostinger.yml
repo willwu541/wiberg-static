@@ -1,0 +1,42 @@
+# Push to main → FTP sync to Hostinger public_html (no manual upload)
+# Setup: GitHub repo → Settings → Secrets → add FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Hostinger: usually FTPS on port 21. If plain FTP, set protocol: ftp
+          protocol: ftps
+          port: 21
+          # If your files must go elsewhere (addon domain / subfolder), change this path.
+          server-dir: public_html/
+          # Deploy repo root (where index.html lives). Change if your site lives in a subfolder.
+          local-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/wiberg-catalogs1/**
+            **/.cursor/**
+            **/*.log
+          log-level: minimal

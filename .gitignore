@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.cursor/
+
+# Node (if used locally)
+node_modules/
+
+# Local tooling / secrets (never commit)
+.env
+.env.*
+*.pem
+
+# Build / catalog tooling (not needed on web server)
+wiberg-catalogs1/node_modules/

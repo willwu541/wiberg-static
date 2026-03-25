@@ -1,0 +1,31 @@
+/* RTL overrides for Arabic (lang="ar") */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .container,
+[dir="rtl"] .header-inner,
+[dir="rtl"] .top-bar-inner,
+[dir="rtl"] .hero__inner,
+[dir="rtl"] .footer-grid {
+  text-align: right;
+}
+[dir="rtl"] .top-bar-left { order: 2; }
+[dir="rtl"] .top-bar-right { order: 1; }
+[dir="rtl"] .nav { flex-direction: row-reverse; }
+[dir="rtl"] .header-actions { flex-direction: row-reverse; }
+[dir="rtl"] .hero__content { text-align: right; }
+[dir="rtl"] .hero__cta { flex-direction: row-reverse; flex-wrap: wrap-reverse; }
+[dir="rtl"] .hero__data { flex-direction: row-reverse; }
+[dir="rtl"] .hero__visual { order: -1; }
+[dir="rtl"] .btn-row { flex-direction: row-reverse; flex-wrap: wrap-reverse; }
+[dir="rtl"] .footer-grid { direction: rtl; }
+[dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+[dir="rtl"] .breadcrumbs { flex-direction: row-reverse; }
+[dir="rtl"] .nav-dropdown-menu { right: auto; left: 0; }
+[dir="rtl"] .form-grid { direction: rtl; }
+[dir="rtl"] .card-body { text-align: right; }
+[dir="rtl"] .trust-strip { flex-direction: row-reverse; }
+[dir="rtl"] .product-grid { direction: rtl; }
+[dir="rtl"] .grid { direction: rtl; }
+[dir="rtl"] .cta-strip { flex-direction: row-reverse; }
+[dir="rtl"] .lang-switcher { flex-direction: row-reverse; }

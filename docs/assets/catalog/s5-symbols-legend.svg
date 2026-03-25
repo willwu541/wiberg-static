@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" role="img" aria-labelledby="t">
+  <title id="t">Figure symbols legend</title>
+  <rect width="400" height="180" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Symbols in legends</text>
+  <text x="40" y="60" font-family="Arial,sans-serif" font-size="14" fill="#1a2332">s�</text><text x="90" y="60" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">bearing pitch (c/c)</text>
+  <text x="40" y="88" font-family="Arial,sans-serif" font-size="14" fill="#1a2332">s�</text><text x="90" y="88" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">cross pitch (c/c)</text>
+  <text x="40" y="116" font-family="Arial,sans-serif" font-size="14" fill="#1a2332">L</text><text x="90" y="116" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">span (support c/c)</text>
+  <text x="40" y="144" font-family="Arial,sans-serif" font-size="14" fill="#1a2332">h , t</text><text x="90" y="144" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">bearing depth � thickness</text>
+  <text x="220" y="100" font-family="Arial,sans-serif" font-size="10" fill="#2b6cb0">Quotation or approved drawing overrides conflicting symbols.</text>
+</svg>

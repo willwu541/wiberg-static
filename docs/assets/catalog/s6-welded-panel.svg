@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" role="img" aria-labelledby="t">
+  <title id="t">Welded grating panel schematic plan</title>
+  <rect width="360" height="240" fill="#ffffff"/>
+  <rect x="30" y="30" width="300" height="180" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+  <g stroke="#2c5282" stroke-width="2">
+    <line x1="45" y1="40" x2="45" y2="200"/><line x1="70" y1="40" x2="70" y2="200"/><line x1="95" y1="40" x2="95" y2="200"/>
+    <line x1="120" y1="40" x2="120" y2="200"/><line x1="145" y1="40" x2="145" y2="200"/><line x1="170" y1="40" x2="170" y2="200"/>
+    <line x1="195" y1="40" x2="195" y2="200"/><line x1="220" y1="40" x2="220" y2="200"/><line x1="245" y1="40" x2="245" y2="200"/>
+    <line x1="270" y1="40" x2="270" y2="200"/><line x1="295" y1="40" x2="295" y2="200"/><line x1="320" y1="40" x2="320" y2="200"/>
+    <line x1="40" y1="55" x2="320" y2="55"/><line x1="40" y1="85" x2="320" y2="85"/><line x1="40" y1="115" x2="320" y2="115"/>
+    <line x1="40" y1="145" x2="320" y2="145"/><line x1="40" y1="175" x2="320" y2="175"/>
+  </g>
+  <circle cx="70" cy="55" r="4" fill="#5a6a7a" stroke="#1a2332"/><circle cx="145" cy="115" r="4" fill="#5a6a7a" stroke="#1a2332"/>
+  <text x="30" y="228" font-family="Arial,sans-serif" font-size="11" fill="#4a5568">Typical welded steel bar grating  plan (schematic)</text>
+</svg>

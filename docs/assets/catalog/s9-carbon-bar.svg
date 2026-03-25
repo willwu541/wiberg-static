@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" role="img" aria-labelledby="t">
+  <title id="t">Carbon steel bar</title>
+  <rect width="380" height="160" fill="#ffffff"/>
+  <rect x="40" y="65" width="300" height="35" fill="#9aa0a8" stroke="#1a2332" stroke-width="1.5"/>
+  <text x="40" y="40" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Carbon steel  coated or galvanized</text>
+  <text x="40" y="130" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Grades on quotation / mill documents</text>
+</svg>

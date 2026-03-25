@@ -1,0 +1,333 @@
+/* ═══════════════════════════════════════════
+   WIBERG CATALOGS — SHARED STYLES
+   Used by all 4 documents via <link>
+   ═══════════════════════════════════════════ */
+
+/* ─── Brand Variables ─── */
+:root {
+  --c-navy: #1B3A5C;
+  --c-blue: #2E75B6;
+  --c-accent: #E67E22;
+  --c-light: #F2F2F2;
+  --c-mid: #E0E0E0;
+  --c-dark: #4A4A4A;
+  --c-white: #FFFFFF;
+  --c-black: #1a1a1a;
+
+  --font: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --margin: 12mm;
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 11px; }
+body {
+  font-family: var(--font);
+  color: var(--c-black);
+  background: #e0e0e0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Page Container ─── */
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  margin: 10px auto;
+  padding: var(--margin);
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+.page:last-child { page-break-after: auto; }
+
+/* Landscape page */
+.page.landscape {
+  width: var(--page-h);
+  min-height: var(--page-w);
+}
+
+/* ─── Typography ─── */
+.h1 { font-size: 2.4rem; font-weight: 800; color: var(--c-navy); line-height: 1.15; margin-bottom: 6px; }
+.h2 { font-size: 1.8rem; font-weight: 700; color: var(--c-navy); line-height: 1.2; margin-bottom: 5px; margin-top: 14px; }
+.h3 { font-size: 1.4rem; font-weight: 700; color: var(--c-navy); line-height: 1.25; margin-bottom: 4px; margin-top: 10px; }
+.body { font-size: 1rem; line-height: 1.55; color: var(--c-dark); margin-bottom: 6px; }
+.small { font-size: 0.85rem; color: var(--c-dark); }
+.tiny { font-size: 0.75rem; color: #888; }
+.bold { font-weight: 700; }
+.navy { color: var(--c-navy); }
+.accent { color: var(--c-accent); }
+.blue { color: var(--c-blue); }
+.white { color: white; }
+.italic { font-style: italic; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* ─── Accent Line ─── */
+.bar { border-bottom: 3px solid var(--c-navy); margin-bottom: 10px; }
+.bar-accent { border-bottom: 3px solid var(--c-accent); margin-bottom: 10px; }
+.bar-thin { border-bottom: 1px solid var(--c-mid); margin: 6px 0; }
+
+/* ─── Layout Helpers ─── */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.gap-2 { gap: 2mm; }
+.gap-3 { gap: 3mm; }
+.gap-4 { gap: 4mm; }
+.gap-6 { gap: 6mm; }
+.w-full { width: 100%; }
+.w-half { width: 50%; }
+.w-third { width: 33.33%; }
+.w-quarter { width: 25%; }
+.w-55 { width: 55%; }
+.w-45 { width: 45%; }
+.w-65 { width: 65%; }
+.w-35 { width: 35%; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* ─── Grid ─── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+.grid-2x3 { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; gap: 4mm; }
+
+/* ─── Spacing ─── */
+.mt-1 { margin-top: 2mm; }
+.mt-2 { margin-top: 4mm; }
+.mt-3 { margin-top: 6mm; }
+.mt-4 { margin-top: 8mm; }
+.mt-6 { margin-top: 12mm; }
+.mt-8 { margin-top: 16mm; }
+.mt-12 { margin-top: 24mm; }
+.mb-1 { margin-bottom: 2mm; }
+.mb-2 { margin-bottom: 4mm; }
+.mb-3 { margin-bottom: 6mm; }
+.mb-4 { margin-bottom: 8mm; }
+.p-2 { padding: 4mm; }
+.p-3 { padding: 6mm; }
+.p-4 { padding: 8mm; }
+.px-2 { padding-left: 4mm; padding-right: 4mm; }
+.py-1 { padding-top: 2mm; padding-bottom: 2mm; }
+
+/* ─── Tables ─── */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+.tbl th {
+  background: var(--c-navy);
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  padding: 3px 5px;
+  font-size: 0.8rem;
+  border: 1px solid #999;
+  line-height: 1.3;
+}
+.tbl td {
+  padding: 2.5px 5px;
+  border: 1px solid #ccc;
+  line-height: 1.35;
+  vertical-align: middle;
+}
+.tbl tr:nth-child(even) td { background: var(--c-light); }
+.tbl td:first-child { font-weight: 600; color: var(--c-navy); }
+.tbl .center-td { text-align: center; }
+.tbl .left-td { text-align: left; }
+.tbl-compact { font-size: 0.75rem; }
+.tbl-compact th { padding: 2px 3px; font-size: 0.7rem; }
+.tbl-compact td { padding: 1.5px 3px; }
+
+/* Blue header variant */
+.tbl-blue th { background: var(--c-blue); }
+
+/* ─── Spec Table (2-col: label | value) ─── */
+.spec-tbl { width: 100%; }
+.spec-tbl td { padding: 2px 5px; border-bottom: 1px solid #eee; font-size: 0.85rem; line-height: 1.4; vertical-align: top; }
+.spec-tbl td:first-child { font-weight: 700; color: var(--c-navy); width: 38%; white-space: nowrap; }
+.spec-tbl tr:nth-child(even) td { background: var(--c-light); }
+
+/* ─── Feature Boxes ─── */
+.feature-box {
+  background: var(--c-light);
+  border-radius: 3px;
+  padding: 5mm;
+}
+.feature-box .num {
+  display: inline-flex;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: white;
+  font-weight: 800;
+  font-size: 0.9rem;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3mm;
+  flex-shrink: 0;
+}
+.feature-box .title { font-weight: 700; color: var(--c-navy); font-size: 1rem; }
+.feature-box .desc { font-size: 0.85rem; color: var(--c-dark); margin-top: 2mm; line-height: 1.45; }
+
+/* ─── Industry Card ─── */
+.ind-card {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  min-height: 55mm;
+}
+.ind-card .bg {
+  width: 100%; height: 30mm;
+  background: var(--c-navy);
+  display: flex; align-items: center; justify-content: center;
+}
+.ind-card .bg .placeholder-img { color: rgba(255,255,255,0.5); font-size: 0.75rem; font-style: italic; }
+.ind-card .content { padding: 3mm; }
+.ind-card .ind-title { font-weight: 800; color: var(--c-navy); font-size: 1rem; margin-bottom: 2mm; }
+.ind-card .rec { font-size: 0.8rem; color: var(--c-dark); line-height: 1.5; }
+.ind-card .rec span { color: var(--c-accent); font-weight: 600; }
+
+/* ─── Product Card ─── */
+.prod-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.prod-card .img-area {
+  height: 28mm;
+  background: #f5f5f5;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+.prod-card .card-body { padding: 3mm; }
+.prod-card .card-title { font-weight: 800; color: var(--c-navy); font-size: 0.95rem; }
+.prod-card .card-tag { color: var(--c-accent); font-size: 0.8rem; font-style: italic; margin-bottom: 2mm; }
+.prod-card .card-list { font-size: 0.78rem; color: var(--c-dark); line-height: 1.5; }
+
+/* ─── Placeholder Image ─── */
+.placeholder-img {
+  border: 2px dashed #ccc;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  padding: 4mm;
+  min-height: 25mm;
+}
+/* When you have real images, replace with: <img src="assets/photos/xxx.jpg" class="real-img"> */
+.real-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── Cover Page ─── */
+.cover-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--c-navy);
+  /* Replace with: background-image: url('assets/photos/cover.jpg'); background-size: cover; */
+}
+.cover-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(27,58,92,0.7) 0%, rgba(27,58,92,0.9) 100%);
+}
+.cover-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  min-height: calc(var(--page-h) - var(--margin) * 2);
+}
+
+/* ─── Page Header / Footer ─── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 2mm;
+  border-bottom: 1.5px solid var(--c-navy);
+  margin-bottom: 4mm;
+  font-size: 0.75rem;
+}
+.page-header .logo-text { font-weight: 800; color: var(--c-navy); font-size: 0.9rem; }
+.page-header .doc-type { color: var(--c-dark); }
+
+.page-footer {
+  position: absolute;
+  bottom: var(--margin);
+  left: var(--margin);
+  right: var(--margin);
+  border-top: 1px solid var(--c-mid);
+  padding-top: 2mm;
+  font-size: 0.7rem;
+  color: #999;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ─── Datasheet Header ─── */
+.ds-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2mm;
+}
+.ds-header .brand { font-weight: 800; font-size: 1.6rem; color: var(--c-navy); }
+.ds-header .brand-sub { font-size: 0.8rem; color: var(--c-dark); }
+.ds-header .ds-label { color: var(--c-accent); font-weight: 700; font-size: 0.85rem; text-align: right; }
+.ds-header .ds-num { font-size: 0.75rem; color: var(--c-dark); text-align: right; }
+
+/* ─── Checklist ─── */
+.checklist td:first-child { width: 5mm; text-align: center; font-size: 1rem; }
+
+/* ─── Step Process (1-2-3-4) ─── */
+.step-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: white;
+  font-weight: 800;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 3mm;
+}
+.step-arrow { color: var(--c-mid); font-size: 1.5rem; align-self: center; }
+
+/* ─── Print Styles ─── */
+@media print {
+  html { font-size: 10px; }
+  body { background: white; }
+  .page {
+    margin: 0;
+    padding: var(--margin);
+    box-shadow: none;
+    width: var(--page-w);
+    min-height: var(--page-h);
+    page-break-after: always;
+  }
+  .page.landscape {
+    width: var(--page-h);
+    min-height: var(--page-w);
+    /* For landscape printing, also set @page for those sections */
+  }
+  @page { size: A4; margin: 0; }
+  .no-print { display: none; }
+}

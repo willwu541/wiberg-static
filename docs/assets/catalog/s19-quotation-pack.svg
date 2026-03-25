@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170" role="img" aria-labelledby="t">
+  <title id="t">Quotation inputs bundle</title>
+  <rect width="400" height="170" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">RFQ / quotation package</text>
+  <rect x="50" y="50" width="90" height="55" fill="#e8f1f8" stroke="#2b6cb0"/><text x="60" y="82" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Geometry</text>
+  <rect x="155" y="50" width="90" height="55" fill="#e8f1f8" stroke="#2b6cb0"/><text x="165" y="82" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Loads</text>
+  <rect x="260" y="50" width="90" height="55" fill="#e8f1f8" stroke="#2b6cb0"/><text x="270" y="82" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Finish</text>
+  <rect x="100" y="115" width="200" height="35" fill="#f4f6f9" stroke="#1e3a5f"/><text x="130" y="136" font-family="Arial,sans-serif" font-size="10" fill="#1a2332">Delivery &amp; documentation</text>
+  <text x="20" y="162" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Only listed quotation lines are in scope</text>
+</svg>

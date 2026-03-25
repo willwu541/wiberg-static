@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img" aria-labelledby="t">
+  <title id="t">Press-locked principle</title>
+  <rect width="300" height="200" fill="#ffffff"/>
+  <line x1="50" y1="100" x2="250" y2="100" stroke="#1a2332" stroke-width="5"/>
+  <line x1="150" y1="45" x2="150" y2="155" stroke="#1a2332" stroke-width="5"/>
+  <rect x="142" y="92" width="16" height="16" fill="#e8f1f8" stroke="#2b6cb0" stroke-width="2"/>
+  <text x="20" y="30" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Principle  press-locked grid</text>
+  <text x="20" y="185" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Smooth plane at crossings; verify capacity on project</text>
+</svg>

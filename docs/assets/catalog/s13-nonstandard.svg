@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" role="img" aria-labelledby="t">
+  <title id="t">Non-standard outside generic tables</title>
+  <rect width="400" height="200" fill="#ffffff"/>
+  <text x="20" y="28" font-family="Arial,sans-serif" font-size="12" fill="#1e3a5f" font-weight="700">Outside generic tables unless supplement released</text>
+  <rect x="40" y="50" width="150" height="120" fill="#ffffff" stroke="#1e3a5f" stroke-dasharray="5 4"/>
+  <text x="55" y="85" font-family="Arial,sans-serif" font-size="9" fill="#4a5568">Cut-outs</text>
+  <text x="55" y="105" font-family="Arial,sans-serif" font-size="9" fill="#4a5568">Concentrated</text>
+  <text x="55" y="125" font-family="Arial,sans-serif" font-size="9" fill="#4a5568">Fatigue / temp</text>
+  <path d="M200 110 L260 110" stroke="#c9a227" stroke-width="2" marker-end="url(#rarr)"/>
+  <rect x="270" y="60" width="110" height="100" fill="#e8f1f8" stroke="#2b6cb0"/>
+  <text x="280" y="95" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">Quotation</text>
+  <text x="280" y="112" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">or written</text>
+  <text x="280" y="129" font-family="Arial,sans-serif" font-size="9" fill="#1a2332">technical note</text>
+  <defs><marker id="rarr" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9a227"/></marker></defs>
+  <text x="20" y="188" font-family="Arial,sans-serif" font-size="10" fill="#4a5568">Tables indicative until basis fixed in writing</text>
+</svg>
