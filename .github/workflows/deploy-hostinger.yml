@@ -1,6 +1,3 @@
-# Push to main → FTP sync to Hostinger public_html (no manual upload)
-# Setup: GitHub repo → Settings → Secrets → add FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-
 name: Deploy to Hostinger
 
 on:
@@ -24,12 +21,9 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Hostinger: usually FTPS on port 21. If plain FTP, set protocol: ftp
-          protocol: ftps
+          protocol: ftp
           port: 21
-          # If your files must go elsewhere (addon domain / subfolder), change this path.
-          server-dir: public_html/
-          # Deploy repo root (where index.html lives). Change if your site lives in a subfolder.
+          server-dir: /public_html/
           local-dir: ./
           exclude: |
             **/.git*
