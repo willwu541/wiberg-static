@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wibergmetal.com/sitemap_index.xml
+
