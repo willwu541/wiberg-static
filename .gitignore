@@ -15,3 +15,7 @@ node_modules/
 
 # Build / catalog tooling (not needed on web server)
 wiberg-catalogs1/node_modules/
+
+# Generated deploy bundle (CI rebuilds; local: run build-deploy.ps1)
+_site-dist/
+*.zip

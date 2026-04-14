@@ -47,6 +47,7 @@
 - Saddle clips, hold-down clips, panel joining clips, banding bars, toe plates
 
 ## Long-form guides (blog)
+- [Hold-Down Clips & Grating Fixings (Specifier Guide)](https://wibergmetal.com/blog/hold-down-clips-grating-fixings-guide/)
 - [How to Choose Steel Grating (Complete Guide)](https://wibergmetal.com/blog/how-to-choose-steel-grating/)
 - [Steel Grating Load Capacity Explained](https://wibergmetal.com/blog/steel-grating-load-capacity-explained/)
 - [Steel Grating for Data Centers](https://wibergmetal.com/blog/steel-grating-for-data-centers/)

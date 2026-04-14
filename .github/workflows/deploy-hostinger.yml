@@ -13,6 +13,8 @@ concurrency:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
+    # 文件多时单线程 FTP 易超时；lftp 并行 + 整 job 上限放宽
+    timeout-minutes: 120
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,6 +35,11 @@ jobs:
           Copy-Item -Path contact -Destination _site-dist\contact -Recurse -Force
           Copy-Item -Path privacy -Destination _site-dist\privacy -Recurse -Force
           Copy-Item -Path terms -Destination _site-dist\terms -Recurse -Force
+          Copy-Item -Path standards -Destination _site-dist\standards -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path ar -Destination _site-dist\ar -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path id -Destination _site-dist\id -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path th -Destination _site-dist\th -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path vi -Destination _site-dist\vi -Recurse -Force -ErrorAction SilentlyContinue
           Copy-Item -Path sitemap*.xml -Destination _site-dist -Force -ErrorAction SilentlyContinue
           Copy-Item -Path public/sitemap.xml -Destination _site-dist/sitemap.xml -Force -ErrorAction SilentlyContinue
           Copy-Item -Path robots.txt -Destination _site-dist\robots.txt -Force -ErrorAction SilentlyContinue
@@ -41,8 +48,39 @@ jobs:
           Copy-Item -Path 404.html -Destination _site-dist\404.html -Force -ErrorAction SilentlyContinue
           Copy-Item -Path blog -Destination _site-dist\blog -Recurse -Force -ErrorAction SilentlyContinue
 
-      # Hostinger：明文 FTP 在 GitHub 上往往比 FTPS 更快、更少卡死；超时单位 ms（30 分钟）
-      - name: Deploy with FTP (primary)
+      # 主路径：lftp 多连接并行；--ignore-time 只比文件大小，避免 CI 检出后时间戳全变导致每次整站重传
+      - name: Deploy via lftp (parallel mirror)
+        id: deploy_lftp
+        continue-on-error: true
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -yqq lftp
+          printf '%s\n' "machine ${FTP_SERVER}" "login ${FTP_USERNAME}" "password ${FTP_PASSWORD}" > "$HOME/.netrc"
+          chmod 600 "$HOME/.netrc"
+          {
+            echo 'set dns:order "inet"'
+            echo 'set net:timeout 120'
+            echo 'set net:max-retries 15'
+            echo 'set net:reconnect-interval-base 5'
+            echo 'set ftp:ssl-allow no'
+            echo 'set cmd:fail-exit yes'
+            echo "open -p 21 ftp://${FTP_SERVER}"
+            echo "lcd ${GITHUB_WORKSPACE}/_site-dist"
+            echo 'cd /public_html'
+            echo 'mirror -R --parallel=12 --ignore-time -v'
+            echo 'bye'
+          } > /tmp/lftp-deploy.txt
+          lftp -f /tmp/lftp-deploy.txt
+          rm -f "$HOME/.netrc" /tmp/lftp-deploy.txt
+
+      # 备用：单线程 + 远端 state 增量（lftp 失败或主机限制多连接时）
+      - name: Deploy with FTP (fallback)
+        if: steps.deploy_lftp.outcome == 'failure'
         id: deploy_ftp
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
@@ -67,8 +105,8 @@ jobs:
             **/*.log
           log-level: standard
 
-      - name: Deploy with FTPS (fallback)
-        if: steps.deploy_ftp.outcome == 'failure'
+      - name: Deploy with FTPS (last resort)
+        if: steps.deploy_lftp.outcome == 'failure' && steps.deploy_ftp.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
