@@ -1,0 +1,70 @@
+# Wiberg Metal — llms.txt
+
+> For extended product details, specifications, and technical data, see: https://wibergmetal.com/llms-full.txt
+
+> Wiberg Metal is a China-based steel grating manufacturer specializing in industrial platforms, walkways, stair systems, trench covers, and FRP grating. We supply to international projects in oil & gas, power generation, petrochemical, data centers, water treatment, marine, and infrastructure sectors.
+
+## Company overview
+
+- Website: https://wibergmetal.com
+- Email: info@wibergmetal.com
+- WhatsApp: +86 132 7317 7087
+- Location: Shanghai, China
+- Experience: 18+ years
+- Facility: 20,000 m² production, 4 production lines, robotic welding
+- Capacity: 300,000 m²/year
+- Standards: GB (YB/T 4001), ANSI/NAAMM MBG 531, EN ISO 24637, ASTM A1 053, BS EN 1090
+- Export markets: Middle East, Southeast Asia, Africa, South America, Europe, Oceania
+
+## Products
+
+### Bar Grating
+- [Welded Bar Grating](https://wibergmetal.com/products/bar-grating/welded-bar-grating/): Press-welded (forge-welded) at every crossing. Most common type. Models: G305/30/100, G325/30/100, 19-W-4.
+- [Press-Locked Bar Grating](https://wibergmetal.com/products/bar-grating/press-locked-bar-grating/): Mechanical interlock, no weld marks. Architectural and flush-surface applications.
+- [Heavy-Duty Welded Grating](https://wibergmetal.com/products/bar-grating/heavy-duty-welded-bar-grating/): Thicker bearing bars (40–65 mm) for high point loads and heavy equipment.
+- [Serrated Bar Grating](https://wibergmetal.com/products/bar-grating/serrated-bar-grating/): Anti-slip serrated bearing bar surface for wet/oily environments.
+- [Close-Mesh Bar Grating](https://wibergmetal.com/products/bar-grating/close-mesh-bar-grating/): Narrow openings to prevent small objects falling through. High-heel safe.
+- [Composite Steel Grating](https://wibergmetal.com/products/bar-grating/composite-steel-grating/): Checker plate bonded to bar grating. Full coverage surface.
+- [Ball-Proof Grating](https://wibergmetal.com/products/bar-grating/ball-proof-grating/): Mesh openings small enough to prevent a 35 mm sphere from passing.
+
+### Stair Treads
+- [Welded Stair Treads](https://wibergmetal.com/products/stair-treads/welded-stair-treads/)
+- [Serrated Stair Treads](https://wibergmetal.com/products/stair-treads/serrated-stair-treads/)
+- [Bolted Stair Treads](https://wibergmetal.com/products/stair-treads/bolted-stair-treads/)
+- [Custom Stair Treads](https://wibergmetal.com/products/stair-treads/custom-stair-treads/)
+
+### Trench Covers
+- [Standard Trench Covers](https://wibergmetal.com/products/trench-covers/standard-trench-covers/)
+- [Heavy-Duty Trench Covers](https://wibergmetal.com/products/trench-covers/heavy-duty-trench-covers/)
+- [Drainage Channel Covers](https://wibergmetal.com/products/trench-covers/drainage-channel-covers/)
+
+### FRP Grating
+- [Molded FRP Grating](https://wibergmetal.com/products/frp-grating/molded-frp-grating/)
+- [Chemical-Resistant FRP](https://wibergmetal.com/products/frp-grating/chemical-resistant-frp-grating/)
+- [Anti-Slip FRP Grating](https://wibergmetal.com/products/frp-grating/anti-slip-frp-grating/)
+
+### Accessories
+- Saddle clips, hold-down clips, panel joining clips, banding bars, toe plates
+
+## Long-form guides (blog)
+- [How to Choose Steel Grating (Complete Guide)](https://wibergmetal.com/blog/how-to-choose-steel-grating/)
+- [Steel Grating Load Capacity Explained](https://wibergmetal.com/blog/steel-grating-load-capacity-explained/)
+- [Steel Grating for Data Centers](https://wibergmetal.com/blog/steel-grating-for-data-centers/)
+- [Steel Grating for Power Plants](https://wibergmetal.com/blog/steel-grating-for-power-plants/)
+- [Steel Grating vs FRP Grating](https://wibergmetal.com/blog/frp-vs-steel-grating/)
+
+## Technical resources
+- [Load Tables](https://wibergmetal.com/engineering/load-tables/)
+- [How to Specify](https://wibergmetal.com/engineering/how-to-specify/)
+- [Materials & Finishes](https://wibergmetal.com/engineering/materials-finishes/)
+- [Grating Terminology](https://wibergmetal.com/engineering/grating-terminology/)
+- [Product Spacing Guide](https://wibergmetal.com/engineering/product-spacing-guide/)
+- [Installation & Fixings](https://wibergmetal.com/engineering/installation-fixings/)
+- [FAQ](https://wibergmetal.com/engineering/faq/)
+- [Standards & References](https://wibergmetal.com/engineering/standards/)
+
+## Industries served
+Oil & Gas, Power Plants, Chemical & Petrochemical, Water Treatment, Marine & Offshore, Industrial Manufacturing, Warehousing & Logistics, Transportation Infrastructure, Data Centers, Renewable Energy
+
+## How to get a quote
+Send project details (drawings, dimensions, load requirements, finish, quantity) to info@wibergmetal.com or use https://wibergmetal.com/rfq/. Typical response within 24 business hours.

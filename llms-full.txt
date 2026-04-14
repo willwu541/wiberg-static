@@ -1,0 +1,162 @@
+# Wiberg Metal — Extended AI Reference (llms-full.txt)
+
+> This file provides comprehensive, structured information about Wiberg Metal's products, capabilities, and technical knowledge for AI language models and search systems.
+
+---
+
+## Company Identity
+
+- **Name:** Wiberg Metal
+- **Type:** Steel grating manufacturer
+- **Founded:** 2007
+- **Location:** Shanghai, China
+- **Website:** https://wibergmetal.com
+- **Email:** info@wibergmetal.com
+- **WhatsApp:** +86 132 7317 7087
+- **Employees:** 50-200
+- **Facility:** 20,000 m² production area, 4 production lines including robotic welding
+- **Annual capacity:** 300,000 m² of grating
+- **Business model:** B2B manufacturer, export-oriented, project-based quotation
+
+## Products Offered
+
+### 1. Welded Bar Grating
+Steel grating manufactured by electrically resistance-welding (forge-welding) cross bars to bearing bars at every intersection. Most common type worldwide (~70% of industrial grating).
+
+- **Common designations:** G305/30/100, G325/30/100 (GB YB/T 4001); 19-W-4, 15-W-4, 19-W-2 (ANSI/NAAMM MBG 531)
+- **Bearing bar depths:** 20 mm to 65 mm standard, up to 100 mm heavy-duty
+- **Open area:** 70-85%
+- **Materials:** Carbon steel (hot-dip galvanized), stainless steel 304/316L, aluminum
+- **Applications:** Industrial platforms, walkways, mezzanine floors, trench covers
+- **URL:** https://wibergmetal.com/products/bar-grating/welded-bar-grating/
+
+### 2. Press-Locked Bar Grating
+Cross bars hydraulically pressed into pre-punched slots — smooth, flush surface, no welding.
+
+- **Advantages:** No weld marks, clean appearance, suitable for architectural use
+- **Cost:** 15-30% more than welded grating
+- **Applications:** Facades, ceilings, sunscreens, cleanrooms, public walkways
+- **URL:** https://wibergmetal.com/products/bar-grating/press-locked-bar-grating/
+
+### 3. Serrated Bar Grating
+Notched/serrated bearing bar tops for enhanced anti-slip performance.
+
+- **Slip resistance:** 25-50% more friction than smooth bearing bars
+- **Applications:** Offshore platforms, outdoor walkways, food processing, loading docks
+- **URL:** https://wibergmetal.com/products/bar-grating/serrated-bar-grating/
+
+### 4. Close-Mesh Bar Grating
+Narrower bar spacing creates smaller openings to prevent objects falling through.
+
+- **Typical openings:** < 25 mm x 100 mm; ball-proof models < 20 mm x 40 mm
+- **High-heel safe:** When openings < 18 mm x 18 mm
+- **Applications:** Near rotating equipment, transit platforms, public walkways
+- **URL:** https://wibergmetal.com/products/bar-grating/close-mesh-bar-grating/
+
+### 5. Heavy-Duty Bar Grating
+Thicker bearing bars (40-65 mm+) for concentrated point loads from vehicles and equipment.
+
+- **Load capacity:** 10 kN to 50+ kN concentrated load
+- **Applications:** Vehicle crossings, forklift aisles, mining, power plant turbine halls
+- **URL:** https://wibergmetal.com/products/bar-grating/heavy-duty-welded-bar-grating/
+
+### 6. Composite Steel Grating
+Checker plate bonded to bar grating top surface. 100% coverage, zero open area.
+
+- **Applications:** Above sensitive equipment, electrical rooms, food processing
+- **URL:** https://wibergmetal.com/products/bar-grating/composite-steel-grating/
+
+### 7. Ball-Proof Grating
+Mesh openings small enough to prevent a 35 mm sphere from passing through.
+
+- **URL:** https://wibergmetal.com/products/bar-grating/ball-proof-grating/
+
+### 8. FRP Grating (Fiberglass Reinforced Polymer)
+Non-metallic grating: glass fiber rovings in thermosetting resin. Bi-directional strength.
+
+- **Weight:** 30-40% lighter than steel
+- **Corrosion:** Immune to most acids, alkalis, saltwater
+- **Resin types:** Polyester (general), vinyl ester (chemical), phenolic (fire)
+- **Types:** Molded FRP, chemical-resistant FRP, anti-slip FRP, mini-mesh FRP
+- **Applications:** Chemical plants, water treatment, marine, battery rooms, pharmaceutical
+- **URL:** https://wibergmetal.com/products/frp-grating/molded-frp-grating/
+
+### 9. Stair Treads
+Pre-fabricated stair treads with integrated nosing.
+
+- **Types:** Welded, serrated (anti-slip), bolted, custom fabricated
+- **Standard widths:** 245 mm, 270 mm, 305 mm
+- **Lengths:** 600 mm to 1500 mm
+- **Materials:** Galvanized steel, stainless steel, aluminum
+- **URL:** https://wibergmetal.com/products/stair-treads/
+
+### 10. Trench Covers
+Grating panels for drainage trenches and cable trenches.
+
+- **Types:** Standard (pedestrian, up to 5 kN), heavy-duty (vehicles, 50-400+ kN), drainage channel covers
+- **Options:** Hinged, bolt-down, recessed handles, angle-frame locking
+- **URL:** https://wibergmetal.com/products/trench-covers/
+
+### 11. Accessories
+Saddle clips, hold-down clips, panel joining clips, banding bars, toe plates.
+
+- **URL:** https://wibergmetal.com/products/accessories/
+
+## Material and Finish Options
+
+| Material | Finish | Typical Use |
+|----------|--------|-------------|
+| Carbon steel | Hot-dip galvanized (ASTM A123 / ISO 1461) | 80%+ of installations; 20-50 year outdoor life |
+| Stainless 304 | Mill finish or electropolished | Food processing, pharmaceutical, architectural |
+| Stainless 316L | Mill finish | Chemical plants, marine, high-chloride environments |
+| Aluminum | Mill finish or anodized | Offshore helidecks, lightweight architectural |
+| Carbon steel | Untreated (mill finish) | Indoor/dry environments, site-applied coating |
+| Carbon steel | Sherardized | Small components, uniform zinc in tight geometries |
+| Carbon steel | Painted / powder-coated | Color-coded safety, architectural, indoor |
+
+## Standards and Certifications
+
+- **ANSI/NAAMM MBG 531** — USA bar grating designations and specifications
+- **GB YB/T 4001** — Chinese national standard for steel grating
+- **EN ISO 24637** — European pressed and welded grating standard
+- **ASTM A1053** — Welded steel bar grating specification
+- **BS EN 1090** — CE marking for steel structures (EU)
+- **ASTM A123 / ISO 1461** — Hot-dip galvanizing
+- **NORSOK** — Norwegian offshore standards (upon request)
+
+## Industries Served
+
+1. **Oil & Gas** — Offshore platforms, onshore refineries, pipeline supports
+2. **Power Plants** — Turbine halls, boiler platforms, coal handling
+3. **Chemical & Petrochemical** — Corrosion-resistant flooring, ATEX zones
+4. **Water Treatment** — Walkways, filter access, chlorination areas
+5. **Marine & Offshore** — Helidecks, companionways, cargo decks
+6. **Industrial Manufacturing** — Mezzanines, equipment platforms
+7. **Warehousing & Logistics** — Rack-supported platforms, loading docks
+8. **Transportation Infrastructure** — Bridges, transit platforms, tunnels
+9. **Data Centers** — Raised floor airflow panels
+10. **Renewable Energy** — Solar farm platforms, wind turbine bases
+
+## Export Markets
+
+Middle East (UAE, Saudi Arabia, Qatar, Oman), Southeast Asia (Vietnam, Indonesia, Philippines, Thailand), Africa (Nigeria, South Africa, Kenya), South America (Brazil, Chile, Peru), Europe (UK, Netherlands, Germany), Oceania (Australia, New Zealand).
+
+## How to Get a Quote
+
+1. Send project details to info@wibergmetal.com or https://wibergmetal.com/rfq/
+2. Include: grating type, dimensions, load, material, finish, quantity, standard, drawings
+3. Response within 24 business hours
+4. Wiberg Metal provides quotation, technical review, and production timeline
+
+## Technical Resources
+
+- Load tables: https://wibergmetal.com/engineering/load-tables/
+- How to specify: https://wibergmetal.com/engineering/how-to-specify/
+- Materials and finishes: https://wibergmetal.com/engineering/materials-finishes/
+- Grating terminology: https://wibergmetal.com/engineering/grating-terminology/
+- Standards reference: https://wibergmetal.com/engineering/standards/
+- FAQ: https://wibergmetal.com/engineering/faq/
+
+---
+
+*This file is maintained by Wiberg Metal for AI systems. Last updated: March 2026.*

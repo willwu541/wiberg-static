@@ -3,6 +3,8 @@ name: Deploy to Hostinger
 on:
   push:
     branches: [main]
+  # 在 GitHub → Actions → Deploy to Hostinger → Run workflow 手动测部署
+  workflow_dispatch:
 
 concurrency:
   group: deploy-hostinger
@@ -15,7 +17,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: FTP Deploy
+      - name: Build deploy-only folder
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path _site-dist | Out-Null
+          Copy-Item -Path index.html -Destination _site-dist\index.html -Force
+          Copy-Item -Path assets -Destination _site-dist\assets -Recurse -Force
+          Copy-Item -Path products -Destination _site-dist\products -Recurse -Force
+          Copy-Item -Path solutions -Destination _site-dist\solutions -Recurse -Force
+          Copy-Item -Path engineering -Destination _site-dist\engineering -Recurse -Force
+          Copy-Item -Path downloads -Destination _site-dist\downloads -Recurse -Force
+          Copy-Item -Path cases -Destination _site-dist\cases -Recurse -Force
+          Copy-Item -Path about -Destination _site-dist\about -Recurse -Force
+          Copy-Item -Path rfq -Destination _site-dist\rfq -Recurse -Force
+          Copy-Item -Path contact -Destination _site-dist\contact -Recurse -Force
+          Copy-Item -Path privacy -Destination _site-dist\privacy -Recurse -Force
+          Copy-Item -Path terms -Destination _site-dist\terms -Recurse -Force
+          Copy-Item -Path sitemap*.xml -Destination _site-dist -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path public/sitemap.xml -Destination _site-dist/sitemap.xml -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path robots.txt -Destination _site-dist\robots.txt -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path llms.txt -Destination _site-dist\llms.txt -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path llms-full.txt -Destination _site-dist\llms-full.txt -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path 404.html -Destination _site-dist\404.html -Force -ErrorAction SilentlyContinue
+          Copy-Item -Path blog -Destination _site-dist\blog -Recurse -Force -ErrorAction SilentlyContinue
+
+      # Hostinger：明文 FTP 在 GitHub 上往往比 FTPS 更快、更少卡死；超时单位 ms（30 分钟）
+      - name: Deploy with FTP (primary)
+        id: deploy_ftp
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -24,7 +53,10 @@ jobs:
           protocol: ftp
           port: 21
           server-dir: /public_html/
-          local-dir: ./
+          local-dir: ./_site-dist/
+          state-name: hostinger-ftp-state.json
+          timeout: 1800000
+          security: loose
           exclude: |
             **/.git*
             **/.git*/**
@@ -33,4 +65,28 @@ jobs:
             **/wiberg-catalogs1/**
             **/.cursor/**
             **/*.log
-          log-level: minimal
+          log-level: standard
+
+      - name: Deploy with FTPS (fallback)
+        if: steps.deploy_ftp.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps-legacy
+          port: 21
+          server-dir: /public_html/
+          local-dir: ./_site-dist/
+          state-name: hostinger-ftp-state.json
+          timeout: 1800000
+          security: loose
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/wiberg-catalogs1/**
+            **/.cursor/**
+            **/*.log
+          log-level: standard

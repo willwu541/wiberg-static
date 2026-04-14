@@ -16,6 +16,7 @@
 
 
 
+  <link rel="llms-txt" type="text/plain" href="https://wibergmetal.com/llms.txt" />
   <link rel="canonical" href="https://wibergmetal.com/about/company/" />
 
   <meta property="og:type" content="website" />
@@ -26,9 +27,11 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://wibergmetal.com/about/company/" />
+  <meta property="og:description" content="Wiberg Metal company profile: 18 years manufacturing steel grating, stair treads, trench covers. Factory capability, export support, and project experience." />
 
 
 
+    <link rel="icon" href="../../assets/images/logo.webp" type="image/webp" />
   <link rel="stylesheet" href="../../assets/css/style.css" />
 
   <script src="../../assets/js/main.js" defer></script>
@@ -43,7 +46,29 @@
 
     "@graph": [
 
-      { "@type": "Organization", "@id": "https://wibergmetal.com/#organization", "name": "Wiberg Metal", "url": "https://wibergmetal.com/", "telephone": "+86 132 7317 7087", "email": "info@wibergmetal.com", "address": { "@type": "PostalAddress", "addressLocality": "Shanghai", "addressCountry": "CN" } },
+      {
+        "@type": "Organization",
+        "@id": "https://wibergmetal.com/#organization",
+        "name": "Wiberg Metal",
+        "url": "https://wibergmetal.com/",
+        "logo": "https://wibergmetal.com/assets/images/logo.webp",
+        "telephone": "+86 132 7317 7087",
+        "email": "info@wibergmetal.com",
+        "foundingDate": "2007",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 50, "maxValue": 200 },
+        "address": { "@type": "PostalAddress", "addressLocality": "Shanghai", "addressCountry": "CN" },
+        "knowsAbout": ["steel bar grating", "welded grating", "press-locked grating", "FRP grating", "industrial stair treads", "trench covers", "hot-dip galvanizing"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Steel Grating Products",
+          "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Bar Grating", "url": "https://wibergmetal.com/products/bar-grating/" },
+            { "@type": "OfferCatalog", "name": "Stair Treads", "url": "https://wibergmetal.com/products/stair-treads/" },
+            { "@type": "OfferCatalog", "name": "Trench Covers", "url": "https://wibergmetal.com/products/trench-covers/" },
+            { "@type": "OfferCatalog", "name": "FRP Grating", "url": "https://wibergmetal.com/products/frp-grating/" }
+          ]
+        }
+      },
 
       {
 
@@ -67,6 +92,28 @@
 
   </script>
 
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".hero p",
+      "meta[name=description]"
+    ]
+  }
+}
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6G4S53TL6K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6G4S53TL6K');
+  </script>
 </head>
 
 <body>
@@ -261,7 +308,7 @@
 
           <p>For a concise overview to share with your team or clients, download our company profile PDF.</p>
 
-          <a class="btn btn--primary" href="../../assets/files/company-profile.pdf" download>Download Company Profile (PDF)</a>
+          <span class="btn btn--ghost" style="opacity:0.6;cursor:default;">Company Profile — coming soon</span>
 
         </section>
 

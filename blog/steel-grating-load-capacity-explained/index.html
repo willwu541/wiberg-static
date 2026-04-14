@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Steel Grating Load Capacity Explained | Spans, UDL &amp; Deflection | Wiberg Metal</title>
+  <meta name="description" content="How bar grating capacity is defined: uniform load, concentrated load, deflection limits, bearing bar direction, and how to read industrial load tables without mixing service and factored loads." />
+  <link rel="llms-txt" type="text/plain" href="https://wibergmetal.com/llms.txt" />
+  <link rel="canonical" href="https://wibergmetal.com/blog/steel-grating-load-capacity-explained/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Steel Grating Load Capacity Explained" />
+  <meta property="og:description" content="Spans, uniform and concentrated loads, deflection, and bearing bar direction—what capacity numbers actually mean on grating schedules." />
+  <meta property="og:image" content="https://wibergmetal.com/assets/images/solutions/Applications/Platform%20Flooring/product-application-fd1aa74d.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://wibergmetal.com/blog/steel-grating-load-capacity-explained/" />
+  <link rel="icon" href="../../assets/images/logo.webp" type="image/webp" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <script src="../../assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"Organization","@id":"https://wibergmetal.com/#organization","name":"Wiberg Metal","url":"https://wibergmetal.com/"},
+    {"@type":"Article","headline":"Steel Grating Load Capacity Explained","description":"Technical explanation of bar grating load capacity, spans, deflection, and how to use load tables.","url":"https://wibergmetal.com/blog/steel-grating-load-capacity-explained/","datePublished":"2026-04-02","dateModified":"2026-04-02","author":{"@id":"https://wibergmetal.com/#organization"},"publisher":{"@id":"https://wibergmetal.com/#organization"}}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Does a deeper bearing bar always increase capacity?","acceptedAnswer":{"@type":"Answer","text":"Usually yes for bending about the strong axis, because section modulus scales roughly with depth squared for a rectangular bar. Capacity also depends on thickness, spacing between bearing bars, span, support conditions, and whether the check is stress-based, deflection-based, or both. Always verify in the supplier table for the exact mesh."}},
+    {"@type":"Question","name":"Why do two suppliers show different capacities for the same mesh call-out?","acceptedAnswer":{"@type":"Answer","text":"Tables may use different steel strengths, different support models (simply supported vs continuous), different deflection limits, or different load factors. They may also reference different editions of NAAMM, GB, or factory test data. Align load basis (service vs ultimate) before comparing numbers."}},
+    {"@type":"Question","name":"What is the difference between uniform load and concentrated load on grating?","acceptedAnswer":{"@type":"Answer","text":"Uniform distributed load (UDL) is pressure over the panel area—kN/m² or psf—and controls general walkway or platform use. Concentrated load is a patch or point load representing a wheel, tool chest, or maintenance trolley. A panel can pass UDL yet fail a concentrated load if bars are too widely spaced or span is long."}},
+    {"@type":"Question","name":"How does deflection control capacity even when stress is acceptable?","acceptedAnswer":{"@type":"Answer","text":"Serviceability limits prevent excessive flex that causes trip hazards, ponding, vibration, or damage to coatings. A mesh that is strong enough in bending may still be rejected if mid-span deflection exceeds span/200 or another owner limit under service loads."}},
+    {"@type":"Question","name":"Should bearing bars run parallel or perpendicular to the walkway length?","acceptedAnswer":{"@type":"Answer","text":"Bearing bars should span between supports—their strong axis resists bending. For a walkway between two stringers, bearing bars typically run across the short span. Installing a panel rotated 90° from the drawing is a common field error that collapses effective capacity."}}
+  ]}
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6G4S53TL6K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6G4S53TL6K');
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="top-bar"><div class="container top-bar-inner"><div class="top-bar-left"><a href="mailto:info@wibergmetal.com">info@wibergmetal.com</a><span class="top-bar-sep" aria-hidden="true">|</span><a href="https://wa.me/8613273177087">+86 132 7317 7087</a><span class="top-bar-sep" aria-hidden="true">|</span><span>China Manufacturer</span></div></div></div>
+  <header class="site-header"><div class="container header-inner"><a class="brand" href="../../" aria-label="Wiberg Metal homepage"><img src="../../assets/images/logo.webp" alt="Wiberg Metal" width="160" height="44" class="brand-logo" /></a><nav class="nav" id="primary-nav" data-nav aria-label="Primary navigation"><div class="nav-dropdown"><a href="../../products/" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Products</a><div class="nav-dropdown-menu"><a href="../../products/bar-grating/">Bar Grating</a><a href="../../products/stair-treads/">Stair Treads</a><a href="../../products/trench-covers/">Trench Covers</a><a href="../../products/accessories/">Accessories</a><a href="../../products/frp-grating/">FRP Grating</a></div></div><div class="nav-dropdown"><a href="../../solutions/" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Solutions</a><div class="nav-dropdown-menu"><a href="../../solutions/applications/">Applications</a><a href="../../solutions/industries/">Industries</a></div></div><div class="nav-dropdown"><a href="../../engineering/" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Engineering</a><div class="nav-dropdown-menu"><a href="../../engineering/grating-terminology/">Grating Terminology</a><a href="../../engineering/product-spacing-guide/">Product Spacing Guide</a><a href="../../engineering/materials-finishes/">Materials and Finishes</a><a href="../../engineering/load-tables/">Load Tables</a><a href="../../engineering/load-calculator/">Load Calculator</a><a href="../../engineering/installation-fixings/">Installation and Fixings</a><a href="../../engineering/how-to-specify/">How to Specify</a><a href="../../engineering/faq/">FAQ</a><a href="../../engineering/standards/">Standards and References</a></div></div><a href="../../downloads/">Downloads</a><a href="../../about/">About</a><a href="../../cases/">Projects</a><a href="../" aria-current="page">Blog</a></nav><div class="header-actions"><a class="btn btn--primary" href="../../rfq/">Request a Quote</a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button></div></div></header>
+  <main id="main">
+    <article class="section section--tight"><div class="container stack">
+      <div class="breadcrumbs" aria-label="Breadcrumbs"><a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../">Blog</a> <span aria-hidden="true">/</span> <span>Steel Grating Load Capacity</span></div>
+      <header class="stack--sm">
+        <p class="blog-card__meta" style="margin-bottom:12px;"><span class="blog-card__category">Engineering</span><span>Apr 2026</span></p>
+        <h1>Steel Grating Load Capacity Explained</h1>
+        <p class="lead">Load tables only answer the question you ask. This page explains what “capacity” means for welded steel bar grating: which span, which load case, which deflection cap, and which direction the bearing bars run.</p>
+      </header>
+      <figure class="blog-lead-media"><img loading="lazy" src="../../assets/images/solutions/Applications/Platform%20Flooring/product-application-fd1aa74d.jpg" alt="Steel grating platform decking illustrating span and load paths" width="1200" height="675" /></figure>
+      <div class="prose stack">
+        <h2>Introduction</h2>
+        <p>Procurement teams often receive a single line on a schedule—“19-W-4 galvanized”—without the structural context that made that line valid. In reality, <a href="../../products/bar-grating/welded-bar-grating/">welded bar grating</a> capacity is a function of bar depth, bar thickness, bearing bar pitch, span between supports, support fixity assumptions baked into the table, and whether the published limit is driven by bending stress or by a deflection criterion. Mixing “factored” loads with “service” tables—or using the wrong span—is how platforms end up over-flexing while still carrying the wrong title on the drawing.</p>
+
+        <h2>Uniform load versus concentrated load</h2>
+        <h3>Uniform distributed load (UDL)</h3>
+        <p>UDL is expressed as pressure: kN/m², kPa, or psf. It represents people, insulation crews, snow in some geographies, or owner live-load bands on maintenance walkways. Catalog <a href="../../engineering/load-tables/">load tables</a> for <a href="../../engineering/load-tables/standard-duty/">standard-duty</a> mesh usually tabulate allowable uniform load versus span for a stated deflection limit (read the footnotes).</p>
+        <h3>Concentrated or patch loads</h3>
+        <p>Wheels from pallet jacks, cable drum rollers, or valve maintenance skids create high local bending over one or two bearing bars. For those cases, move from “walkway tables” to explicit checks. <a href="../../products/bar-grating/heavy-duty-welded-bar-grating/">Heavy-duty welded grating</a> exists precisely because some duty classes cannot be honestly served by the lightest mesh in the brochure.</p>
+
+        <h2>Deflection: the limit that bites on long spans</h2>
+        <p>Steel may still be below yield while the panel feels “bouncy” or shows mid-span dip that trips inspectors. Many owner specifications cap deflection at span/200 or span/250 under <em>service</em> loads. A table that lists “allowable load” implicitly ties that number to a deflection ratio—if you need a tighter feel, the allowable pressure at the same span drops even though the steel itself did not change.</p>
+        <p>Use the <a href="../../engineering/load-calculator/">load calculator</a> or supplier software as a cross-check, but treat outputs as only as good as the boundary conditions you enter.</p>
+
+        <h2>Bearing bar direction and panel orientation</h2>
+        <p>Bearing bars are the primary flexural members. They must bridge between the supports that resist gravity. Cross bars chiefly hold spacing and transfer load between bearing bars; they are not a substitute for rotating the panel. On drawings, show a section or note: “bearing bars perpendicular to beam A–B.” Field crews should verify before welding clips—mis-oriented <a href="../../products/accessories/saddle-clips/">saddle clips</a> on wrongly rotated panels are a known failure mode.</p>
+
+        <h2>How mesh spacing changes the same bar size</h2>
+        <p>Widening bearing bar pitch reduces steel weight per square metre but increases load per bar at a given UDL. A “heavier” call-out on paper (deeper bar) with an overly open pitch can still underperform a slightly shallower bar on tighter spacing. That is why designations like 19-W-4 versus 15-W-4 are not cosmetic; they change load sharing. The <a href="../../engineering/product-spacing-guide/">product spacing guide</a> ties wording to geometry.</p>
+
+        <h2>Heavy-duty and special duty classes</h2>
+        <p>When standard tables plateau, specify <a href="../../products/bar-grating/heavy-duty-welded-bar-grating/">heavy-duty grating</a> with engineering sign-off on wheel paths, dynamic factors if applicable, and edge support. For stair flights, repeat the same discipline on <a href="../../products/stair-treads/welded-stair-treads/">welded stair treads</a> where stringer spacing and nosing details set the span.</p>
+
+        <h2>What to send for a defensible quotation</h2>
+        <ul>
+          <li>Plan showing support lines and clear span dimensions.</li>
+          <li>Service and ultimate load cases as your structural engineer defines them.</li>
+          <li>Deflection limit and which load combination it applies to.</li>
+          <li>Mesh designation or, if unknown, “minimum capacity at span X under loads Y/Z.”</li>
+          <li>Finish: hot-dip galvanized, stainless, or other—after fabrication rules matter to distortion.</li>
+        </ul>
+        <p>Package those items through <a href="../../engineering/how-to-specify/">how to specify</a> and submit via <a href="../../rfq/">RFQ</a>.</p>
+
+        <h2>Related reading and products</h2>
+        <p>Selection workflow: <a href="../how-to-choose-steel-grating/">how to choose steel grating</a>. Material comparison: <a href="../frp-vs-steel-grating/">steel vs FRP grating</a>. Downloads: <a href="../../downloads/load-tables/">load tables pack</a>. Products: <a href="../../products/bar-grating/serrated-bar-grating/">serrated</a>, <a href="../../products/bar-grating/close-mesh-bar-grating/">close-mesh</a>, <a href="../../products/trench-covers/heavy-duty-trench-covers/">heavy-duty trench covers</a>. Typical deployments: <a href="../../solutions/applications/platform-flooring/">platform flooring</a> and <a href="../../solutions/applications/walkways/">industrial walkways</a>.</p>
+
+        <section class="stack" id="faq" style="margin-top:2rem;">
+          <h2>Frequently asked questions</h2>
+          <details><summary>Does a deeper bearing bar always increase capacity?</summary><p>Usually yes for bending about the strong axis, because section modulus scales roughly with depth squared for a rectangular bar. Capacity also depends on thickness, spacing, span, support conditions, and whether the check is stress-based, deflection-based, or both. Verify in the supplier table for the exact mesh.</p></details>
+          <details><summary>Why do two suppliers show different capacities for the same mesh call-out?</summary><p>Tables may use different steel strengths, support models, deflection limits, or load factors. They may reference different standard editions. Align service versus ultimate load basis before comparing numbers.</p></details>
+          <details><summary>What is the difference between uniform load and concentrated load on grating?</summary><p>Uniform load is pressure over the panel. Concentrated load is a patch or point representing a wheel or heavy maintenance load. A panel can pass UDL yet fail a concentrated load if bars are too widely spaced or span is long.</p></details>
+          <details><summary>How does deflection control capacity even when stress is acceptable?</summary><p>Serviceability limits prevent excessive flex that causes trip hazards, vibration, or coating damage. A mesh can be strong in bending yet rejected if deflection exceeds span/200 (or another stated cap) under service loads.</p></details>
+          <details><summary>Should bearing bars run parallel or perpendicular to the walkway length?</summary><p>Bearing bars should span between supports. For a walkway between stringers, they typically run across the short span. Rotating the panel 90° from the drawing collapses effective capacity.</p></details>
+        </section>
+      </div>
+      <p style="margin-top:2em;"><a href="../" style="font-weight:600;">Back to Blog</a></p>
+    </div></article>
+    <section class="section section--tight"><div class="container"><div class="cta-strip"><div><h2>Need capacity checks or pricing?</h2><p>Send spans, loads, and mesh preferences.</p></div><a class="btn btn--primary" href="../../rfq/">Request a Quote</a></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div><div class="footer-title">Products</div><ul class="footer-list"><li><a href="../../products/bar-grating/">Bar Grating</a></li><li><a href="../../products/stair-treads/">Stair Treads</a></li><li><a href="../../products/trench-covers/">Trench Covers</a></li><li><a href="../../products/accessories/">Accessories</a></li><li><a href="../../products/frp-grating/">FRP Grating</a></li></ul></div><div><div class="footer-title">Resources</div><ul class="footer-list"><li><a href="../../engineering/">Engineering</a></li><li><a href="../../downloads/">Downloads</a></li><li><a href="../">Blog</a></li></ul></div><div><div class="footer-title">Company</div><ul class="footer-list"><li><a href="../../about/">About</a></li><li><a href="../../solutions/applications/">Applications</a></li><li><a href="../../solutions/industries/">Industries</a></li><li><a href="../../cases/">Projects</a></li></ul></div><div><div class="footer-title">Contact</div><div class="footer-meta"><div><a href="mailto:info@wibergmetal.com">info@wibergmetal.com</a></div><div><a href="https://wa.me/8613273177087">+86 132 7317 7087</a> (WhatsApp)</div><div>Mon–Sat · 09:00–18:00 (UTC+8)</div></div></div></div><div class="footer-bottom"><div>© <span data-year></span> Wiberg Metal. All rights reserved.</div><div class="footer-legal"><a href="../../privacy/">Privacy Policy</a><a href="../../terms/">Terms &amp; Conditions</a></div></div></div></footer>
+</body>
+</html>

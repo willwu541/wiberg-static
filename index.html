@@ -16,6 +16,7 @@
 
 
 
+  <link rel="llms-txt" type="text/plain" href="https://wibergmetal.com/llms.txt" />
   <link rel="canonical" href="https://wibergmetal.com/" />
 
   <link rel="alternate" hreflang="en" href="https://wibergmetal.com/" />
@@ -43,6 +44,7 @@
 
 
 
+    <link rel="icon" href="assets/images/logo.webp" type="image/webp" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <script src="assets/js/main.js" defer></script>
@@ -60,26 +62,56 @@
       {
 
         "@type": "Organization",
-
         "@id": "https://wibergmetal.com/#organization",
-
         "name": "Wiberg Metal",
-
         "url": "https://wibergmetal.com/",
-
         "logo": "https://wibergmetal.com/assets/images/logo.webp",
-
-        "description": "Steel grating manufacturer for industrial platforms, walkways, and drainage. Bar grating, stair treads, trench covers, FRP. GB and ANSI/NAAMM standards. Export-oriented.",
-
+        "image": "https://wibergmetal.com/assets/images/logo.webp",
+        "description": "China-based steel grating manufacturer for industrial platforms, walkways, stair treads, trench covers, and FRP grating. Serving oil & gas, power, petrochemical, data centers, and infrastructure worldwide. GB and ANSI/NAAMM standards. 18+ years, 300,000 m²/year capacity.",
         "telephone": "+86 132 7317 7087",
-
         "email": "info@wibergmetal.com",
-
-        "address": { "@type": "PostalAddress", "addressLocality": "Shanghai", "addressCountry": "CN" }
+        "foundingDate": "2007",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 50, "maxValue": 200 },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Shanghai",
+          "addressCountry": "CN"
+        },
+        "areaServed": [
+          { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 0, "longitude": 0 }, "description": "Worldwide" }
+        ],
+        "knowsAbout": [
+          "steel bar grating", "welded grating", "press-locked grating", "serrated grating",
+          "close-mesh grating", "heavy-duty grating", "industrial stair treads",
+          "trench covers", "FRP grating", "platform flooring", "industrial walkways",
+          "hot-dip galvanizing", "NAAMM MBG 531", "EN ISO 24637", "YB/T 4001"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Steel Grating Products",
+          "itemListElement": [
+            { "@type": "OfferCatalog", "name": "Bar Grating", "url": "https://wibergmetal.com/products/bar-grating/" },
+            { "@type": "OfferCatalog", "name": "Stair Treads", "url": "https://wibergmetal.com/products/stair-treads/" },
+            { "@type": "OfferCatalog", "name": "Trench Covers", "url": "https://wibergmetal.com/products/trench-covers/" },
+            { "@type": "OfferCatalog", "name": "FRP Grating", "url": "https://wibergmetal.com/products/frp-grating/" },
+            { "@type": "OfferCatalog", "name": "Accessories", "url": "https://wibergmetal.com/products/accessories/" }
+          ]
+        }
 
       },
 
-      { "@type": "WebSite", "@id": "https://wibergmetal.com/#website", "url": "https://wibergmetal.com/", "name": "Wiberg Metal", "publisher": { "@id": "https://wibergmetal.com/#organization" } }
+      {
+        "@type": "WebSite",
+        "@id": "https://wibergmetal.com/#website",
+        "url": "https://wibergmetal.com/",
+        "name": "Wiberg Metal",
+        "publisher": { "@id": "https://wibergmetal.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://wibergmetal.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
 
     ]
 
@@ -87,6 +119,28 @@
 
   </script>
 
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".hero p",
+      "meta[name=description]"
+    ]
+  }
+}
+  </script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6G4S53TL6K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6G4S53TL6K');
+  </script>
 </head>
 
 <body class="page-home">
@@ -661,7 +715,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/applications/platform-flooring/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/applications/platform-flooring/">Platform flooring solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -683,7 +737,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/applications/walkways/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/applications/walkways/">Walkway grating solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -705,7 +759,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/applications/stair-systems/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/applications/stair-systems/">Stair system solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -727,7 +781,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/applications/drainage-covers/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/applications/drainage-covers/">Drainage cover solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -749,7 +803,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/applications/safety-flooring/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/applications/safety-flooring/">Safety flooring solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -777,7 +831,7 @@
 
               <div class="btn-row">
 
-                <a class="btn btn--ghost" href="solutions/industries/oil-gas/">Learn more</a>
+                <a class="btn btn--ghost" href="solutions/industries/oil-gas/">Oil & Gas grating solutions</a>
 
                 <a class="btn btn--primary" href="rfq/">Get Quote</a>
 
@@ -797,7 +851,7 @@
 
               <p>Grating for turbine halls and trench covers.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/power-plants/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/power-plants/">Power plant grating solutions</a>
 
             </div>
 
@@ -813,7 +867,7 @@
 
               <p>Chemical-resistant grating for process platforms.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/chemical-petrochemical/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/chemical-petrochemical/">Chemical & petrochemical solutions</a>
 
             </div>
 
@@ -829,7 +883,7 @@
 
               <p>Corrosion-resistant grating for wastewater plants.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/water-treatment/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/water-treatment/">Water treatment grating</a>
 
             </div>
 
@@ -845,7 +899,7 @@
 
               <p>Marine-grade grating for offshore and coastal.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/marine-offshore/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/marine-offshore/">Marine & offshore grating</a>
 
             </div>
 
@@ -861,7 +915,7 @@
 
               <p>Platform flooring and walkways for factories.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/industrial-manufacturing/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/industrial-manufacturing/">Industrial manufacturing grating</a>
 
             </div>
 
@@ -877,7 +931,7 @@
 
               <p>Mezzanine and loading dock walkways.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/warehousing-logistics/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/warehousing-logistics/">Warehousing & logistics grating</a>
 
             </div>
 
@@ -893,7 +947,7 @@
 
               <p>Trench covers and bridge walkways.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/transportation-infrastructure/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/transportation-infrastructure/">Transportation infrastructure grating</a>
 
             </div>
 
@@ -909,7 +963,7 @@
 
               <p>Raised floor grating and cable management.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/data-centers/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/data-centers/">Data center grating solutions</a>
 
             </div>
 
@@ -925,7 +979,7 @@
 
               <p>Walkways for solar, wind, and BESS.</p>
 
-              <a class="btn btn--ghost" href="solutions/industries/renewable-energy/">Learn more</a>
+              <a class="btn btn--ghost" href="solutions/industries/renewable-energy/">Renewable energy grating</a>
 
             </div>
 
