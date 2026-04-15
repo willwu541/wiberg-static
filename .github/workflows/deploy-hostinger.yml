@@ -48,7 +48,8 @@ jobs:
           Copy-Item -Path 404.html -Destination _site-dist\404.html -Force -ErrorAction SilentlyContinue
           Copy-Item -Path blog -Destination _site-dist\blog -Recurse -Force -ErrorAction SilentlyContinue
           # 部署后浏览器打开 https://你的域名/.deploy-revision.txt 应对应当前 commit（核对是否传到对目录）
-          Set-Content -Path '_site-dist/.deploy-revision.txt' -Value "${env:GITHUB_SHA} $(Get-Date -Format 'o')" -Encoding utf8
+          $u8 = [System.Text.UTF8Encoding]::new($false)
+          [System.IO.File]::WriteAllText((Join-Path (Get-Location) '_site-dist/.deploy-revision.txt'), "${env:GITHUB_SHA} $(Get-Date -Format 'o')", $u8)
 
       # Hostinger：FTP 登录目录是用户根（与 DO_NOT_UPLOAD_HERE 同级），必须用「相对」public_html，不要用 cd /public_html（会指到服务器根路径，网站文件夹不会更新）
       - name: Deploy via lftp (parallel mirror)
@@ -58,7 +59,7 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          # 可选：Settings → Variables → FTP_REMOTE_DIR，例如 domains/example.com/public_html/（无开头斜杠 = 相对 FTP 根）
+          # 可选：Settings → Variables → FTP_REMOTE_DIR 覆盖下面默认（主域名在 public_html 时改成 public_html）
           FTP_REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
         run: |
           set -euo pipefail
@@ -69,7 +70,7 @@ jobs:
           if [ -n "${FTP_REMOTE_DIR:-}" ]; then
             REMOTE="${FTP_REMOTE_DIR}"
           else
-            REMOTE="public_html"
+            REMOTE="domains/wibergmetal.com/public_html"
           fi
           case "$REMOTE" in */) ;; *) REMOTE="${REMOTE}/" ;; esac
           echo "lftp cd target: $REMOTE (relative to FTP home unless you set an absolute-style path in FTP_REMOTE_DIR)"
@@ -81,12 +82,15 @@ jobs:
             echo 'set net:max-retries 15'
             echo 'set net:reconnect-interval-base 5'
             echo 'set ftp:ssl-allow no'
+            echo 'set ftp:passive-mode true'
             echo 'set cmd:fail-exit yes'
             echo 'set cmd:verbose yes'
             echo "open -p 21 ftp://${FTP_SERVER}"
             echo "lcd ${GITHUB_WORKSPACE}/_site-dist"
             echo "cd $REMOTE"
-            echo 'mirror -R --parallel=6 -v'
+            echo 'pwd'
+            # --delete：远端多出本地没有的会删（与 _site-dist 完全一致）；勿在 public_html 里留未进仓库的重要文件
+            echo 'mirror -R --delete --parallel=6 -v'
             echo 'bye'
           } > /tmp/lftp-deploy.txt
           set +e
@@ -116,7 +120,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'domains/wibergmetal.com/public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
@@ -132,6 +136,7 @@ jobs:
           log-level: standard
 
       - name: Deploy with FTPS (last resort)
+        id: deploy_ftps
         if: steps.deploy_lftp.outcome == 'failure' && steps.deploy_ftp.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -140,7 +145,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps-legacy
           port: 21
-          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'domains/wibergmetal.com/public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
@@ -154,3 +159,25 @@ jobs:
             **/.cursor/**
             **/*.log
           log-level: standard
+
+      # FTP 成功 ≠ 浏览器看到新页：可能缓存，或域名绑在别的空间。用线上 marker 与 GITHUB_SHA 比对。
+      - name: Verify live site matches this commit
+        if: steps.deploy_lftp.outcome == 'success' || steps.deploy_ftp.outcome == 'success' || steps.deploy_ftps.outcome == 'success'
+        env:
+          DEPLOY_VERIFY_URL: ${{ vars.DEPLOY_VERIFY_URL }}
+        run: |
+          set -euo pipefail
+          BASE="${DEPLOY_VERIFY_URL:-https://wibergmetal.com}"
+          BASE="${BASE%/}"
+          echo "GET ${BASE}/.deploy-revision.txt (override with repo Variable DEPLOY_VERIFY_URL if your site uses www or another domain)"
+          sleep 25
+          MARK=$(curl -sfL --max-time 45 "${BASE}/.deploy-revision.txt?run=${GITHUB_RUN_ID}" || true)
+          echo "Live marker (prefix): ${MARK:0:80}"
+          if [ -z "$MARK" ]; then
+            echo "::error::Marker file missing or not reachable. Open Hostinger → public_html: is .deploy-revision.txt there? Is GitHub FTP the same account as this panel?"
+            exit 1
+          fi
+          case "$MARK" in "${GITHUB_SHA}"*) echo "OK: live HTML is served from this deploy (${GITHUB_SHA:0:7}). If browser still old, purge cache (Hostinger hPanel / Cloudflare)." ;; *)
+            echo "::error::Marker does not match this run. Purge cache; or set DEPLOY_VERIFY_URL to the exact URL you open in browser (e.g. https://www.wibergmetal.com)."
+            exit 1
+          ;; esac

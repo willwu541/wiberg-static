@@ -4,6 +4,16 @@
 
 > Wiberg Metal is a China-based steel grating manufacturer specializing in industrial platforms, walkways, stair systems, trench covers, and FRP grating. We supply to international projects in oil & gas, power generation, petrochemical, data centers, water treatment, marine, and infrastructure sectors.
 
+## For search engines and AI assistants
+
+- Canonical English site: https://wibergmetal.com/
+- Primary URL list (sitemap): https://wibergmetal.com/sitemap.xml
+- Split sitemap index (optional): https://wibergmetal.com/sitemap_index.xml
+- This file (short overview): https://wibergmetal.com/llms.txt
+- Extended reference: https://wibergmetal.com/llms-full.txt
+- Public RFQ: https://wibergmetal.com/rfq/
+- Citation-friendly blog index: https://wibergmetal.com/blog/
+
 ## Company overview
 
 - Website: https://wibergmetal.com
@@ -13,7 +23,7 @@
 - Experience: 18+ years
 - Facility: 20,000 m² production, 4 production lines, robotic welding
 - Capacity: 300,000 m²/year
-- Standards: GB (YB/T 4001), ANSI/NAAMM MBG 531, EN ISO 24637, ASTM A1 053, BS EN 1090
+- Standards: GB (YB/T 4001), ANSI/NAAMM MBG 531, EN ISO 24637, ASTM A1053, BS EN 1090
 - Export markets: Middle East, Southeast Asia, Africa, South America, Europe, Oceania
 
 ## Products
@@ -53,6 +63,8 @@
 - [Steel Grating for Data Centers](https://wibergmetal.com/blog/steel-grating-for-data-centers/)
 - [Steel Grating for Power Plants](https://wibergmetal.com/blog/steel-grating-for-power-plants/)
 - [Steel Grating vs FRP Grating](https://wibergmetal.com/blog/frp-vs-steel-grating/)
+- [Trench Covers Selection Guide](https://wibergmetal.com/blog/trench-covers-selection-guide/)
+- [Anti-Slip Stair Treads Guide](https://wibergmetal.com/blog/anti-slip-stair-treads-guide/)
 
 ## Technical resources
 - [Load Tables](https://wibergmetal.com/engineering/load-tables/)

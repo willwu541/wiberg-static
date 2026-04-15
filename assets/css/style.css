@@ -1279,15 +1279,53 @@ details summary::after{content:"+";font-size:1.25rem;color:var(--muted);transiti
 details[open] summary::after{content:"\2212";}
 details p{padding:0 var(--space-4) var(--space-4);margin:0;color:var(--text);line-height:1.7;}
 
+/* Blog article: lead image — capped size, centered (was full-bleed 100% width) */
 .blog-lead-media{
-margin:0 0 var(--space-5);
+margin: var(--space-4) auto var(--space-6);
+max-width: min(100%, 40rem);
+text-align: center;
 }
 .blog-lead-media img{
-width:100%;
-height:auto;
-border-radius:var(--radius-md);
-border:1px solid var(--border);
-display:block;
+display: inline-block;
+max-width: 100%;
+width: auto;
+max-height: min(22rem, 48vh);
+height: auto;
+object-fit: contain;
+vertical-align: middle;
+border-radius: var(--radius-md);
+border: 1px solid var(--border);
+box-shadow: var(--shadow-sm);
+}
+
+/* Inline figures/images inside blog body */
+.prose figure.blog-inline-media,
+.prose .blog-inline-media{
+margin: var(--space-5) auto;
+max-width: min(100%, 36rem);
+text-align: center;
+}
+.prose figure.blog-inline-media img,
+.prose .blog-inline-media img{
+display: inline-block;
+max-width: 100%;
+max-height: min(20rem, 42vh);
+width: auto;
+height: auto;
+object-fit: contain;
+border-radius: var(--radius-md);
+border: 1px solid var(--border);
+}
+.prose > img{
+display: block;
+max-width: min(100%, 36rem);
+max-height: min(20rem, 42vh);
+width: auto;
+height: auto;
+object-fit: contain;
+margin: var(--space-4) auto;
+border-radius: var(--radius-md);
+border: 1px solid var(--border);
 }
 
 /* Products hub: SEO / application context below product grid (secondary to catalog) */

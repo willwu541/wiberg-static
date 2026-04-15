@@ -2,6 +2,14 @@
 
 > This file provides comprehensive, structured information about Wiberg Metal's products, capabilities, and technical knowledge for AI language models and search systems.
 
+## Crawl and discovery (for bots and assistants)
+
+- Short overview (`llms.txt`): https://wibergmetal.com/llms.txt
+- All public HTML URLs (sitemap): https://wibergmetal.com/sitemap.xml
+- Optional sitemap index: https://wibergmetal.com/sitemap_index.xml
+- Homepage (canonical EN): https://wibergmetal.com/
+- Request for quotation: https://wibergmetal.com/rfq/
+
 ---
 
 ## Company Identity
@@ -159,4 +167,4 @@ Middle East (UAE, Saudi Arabia, Qatar, Oman), Southeast Asia (Vietnam, Indonesia
 
 ---
 
-*This file is maintained by Wiberg Metal for AI systems. Last updated: March 2026.*
+*This file is maintained by Wiberg Metal for AI systems. Last updated: April 2026.*
