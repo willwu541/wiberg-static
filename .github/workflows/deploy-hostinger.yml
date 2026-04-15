@@ -59,23 +59,24 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          # 可选：Settings → Variables → FTP_REMOTE_DIR 覆盖下面默认（主域名在 public_html 时改成 public_html）
+          # 可选：repo Variable FTP_REMOTE_DIR 覆盖默认；附加域名示例 domains/example.com/public_html
           FTP_REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
         run: |
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -yqq lftp
-          printf '%s\n' "machine ${FTP_SERVER}" "login ${FTP_USERNAME}" "password ${FTP_PASSWORD}" > "$HOME/.netrc"
-          chmod 600 "$HOME/.netrc"
           if [ -n "${FTP_REMOTE_DIR:-}" ]; then
             REMOTE="${FTP_REMOTE_DIR}"
           else
-            REMOTE="domains/wibergmetal.com/public_html"
+            REMOTE="public_html"
           fi
           case "$REMOTE" in */) ;; *) REMOTE="${REMOTE}/" ;; esac
           echo "lftp cd target: $REMOTE (relative to FTP home unless you set an absolute-style path in FTP_REMOTE_DIR)"
           FILES="$(find "${GITHUB_WORKSPACE}/_site-dist" -type f | wc -l)"
           echo "Starting mirror at $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${FILES} files"
+          # 不用 .netrc：密码里的空格、#、引号等会破坏 netrc；530 也可能是并行多连接时第二路登录被拒（误报成 login incorrect）
+          OPEN_URI=$(python3 -c 'import os; from urllib.parse import quote as q; h=os.environ["FTP_SERVER"]; u=q(os.environ["FTP_USERNAME"], safe=""); p=q(os.environ["FTP_PASSWORD"], safe=""); print(f"ftp://{u}:{p}@{h}:21")')
+          if [ -z "$OPEN_URI" ]; then echo "::error::Could not build FTP open URI (check FTP_SERVER / FTP_USERNAME / FTP_PASSWORD secrets)."; exit 1; fi
           {
             echo 'set dns:order "inet"'
             echo 'set net:timeout 120'
@@ -85,12 +86,11 @@ jobs:
             echo 'set ftp:passive-mode true'
             echo 'set cmd:fail-exit yes'
             echo 'set cmd:verbose yes'
-            echo "open -p 21 ftp://${FTP_SERVER}"
+            echo "open -p 21 ${OPEN_URI}"
             echo "lcd ${GITHUB_WORKSPACE}/_site-dist"
-            echo "cd $REMOTE"
+            echo "cd ${REMOTE}"
             echo 'pwd'
-            # --delete：远端多出本地没有的会删（与 _site-dist 完全一致）；勿在 public_html 里留未进仓库的重要文件
-            echo 'mirror -R --delete --parallel=6 -v'
+            echo 'mirror -R --delete --parallel=2 -v'
             echo 'bye'
           } > /tmp/lftp-deploy.txt
           set +e
@@ -105,7 +105,7 @@ jobs:
           wait "$LFTP_PID"
           CODE=$?
           set -e
-          rm -f "$HOME/.netrc" /tmp/lftp-deploy.txt
+          rm -f /tmp/lftp-deploy.txt
           exit "$CODE"
 
       # 备用：单线程 + 远端 state 增量（lftp 失败或主机限制多连接时）
@@ -120,7 +120,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'domains/wibergmetal.com/public_html/' }}
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
@@ -145,7 +145,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps-legacy
           port: 21
-          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'domains/wibergmetal.com/public_html/' }}
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
