@@ -160,24 +160,47 @@ jobs:
             **/*.log
           log-level: standard
 
-      # FTP 成功 ≠ 浏览器看到新页：可能缓存，或域名绑在别的空间。用线上 marker 与 GITHUB_SHA 比对。
+      # FTP 成功 ≠ 浏览器看到新页：可能缓存、www 与裸域不一致、或域名未指向该 FTP 的 public_html。用线上 marker 与 GITHUB_SHA 比对。
       - name: Verify live site matches this commit
-        if: steps.deploy_lftp.outcome == 'success' || steps.deploy_ftp.outcome == 'success' || steps.deploy_ftps.outcome == 'success'
+        if: (steps.deploy_lftp.outcome == 'success' || steps.deploy_ftp.outcome == 'success' || steps.deploy_ftps.outcome == 'success') && vars.SKIP_DEPLOY_VERIFY != 'true'
         env:
           DEPLOY_VERIFY_URL: ${{ vars.DEPLOY_VERIFY_URL }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
           BASE="${DEPLOY_VERIFY_URL:-https://wibergmetal.com}"
           BASE="${BASE%/}"
-          echo "GET ${BASE}/.deploy-revision.txt (override with repo Variable DEPLOY_VERIFY_URL if your site uses www or another domain)"
-          sleep 25
-          MARK=$(curl -sfL --max-time 45 "${BASE}/.deploy-revision.txt?run=${GITHUB_RUN_ID}" || true)
+          URL="${BASE}/.deploy-revision.txt?run=${GITHUB_RUN_ID}"
+          echo "Verify URL: $URL"
+          echo "Tip: if the site opens as https://www.... set repo Variable DEPLOY_VERIFY_URL to that exact origin."
+          echo "Tip: set SKIP_DEPLOY_VERIFY=true to skip this check (deploy still runs)."
+          sleep 15
+          MARK=""
+          for attempt in $(seq 1 15); do
+            code=$(curl -sSL -o /tmp/deploy-marker.body -w "%{http_code}" --max-time 45 "$URL" 2>/tmp/deploy-marker.err || echo "000")
+            if [ "$code" = "200" ]; then
+              MARK=$(tr -d '\r\n' < /tmp/deploy-marker.body)
+              if [ -n "$MARK" ]; then
+                echo "Attempt $attempt: HTTP 200, marker prefix: ${MARK:0:64}"
+                break
+              fi
+              echo "Attempt $attempt: HTTP 200 but empty body (unexpected)"
+            else
+              echo "Attempt $attempt/15: HTTP status=$code"
+              if [ -s /tmp/deploy-marker.err ]; then
+                echo "curl stderr:"; sed 's/^/  /' /tmp/deploy-marker.err | head -20
+              fi
+              if [ -s /tmp/deploy-marker.body ]; then
+                echo "response body (first 200 bytes):"; head -c 200 /tmp/deploy-marker.body; echo
+              fi
+            fi
+            [ "$attempt" -lt 15 ] && sleep 10
+          done
           echo "Live marker (prefix): ${MARK:0:80}"
           if [ -z "$MARK" ]; then
-            echo "::error::Marker file missing or not reachable. Open Hostinger → public_html: is .deploy-revision.txt there? Is GitHub FTP the same account as this panel?"
+            echo "::error::Marker missing or not HTTP 200 after 15 tries. Check: (1) Hostinger File Manager → public_html → .deploy-revision.txt after deploy; (2) DNS/redirect: try Variable DEPLOY_VERIFY_URL=https://www.wibergmetal.com if you always use www; (3) Cloudflare/hPanel cache purge."
             exit 1
           fi
-          case "$MARK" in "${GITHUB_SHA}"*) echo "OK: live HTML is served from this deploy (${GITHUB_SHA:0:7}). If browser still old, purge cache (Hostinger hPanel / Cloudflare)." ;; *)
-            echo "::error::Marker does not match this run. Purge cache; or set DEPLOY_VERIFY_URL to the exact URL you open in browser (e.g. https://www.wibergmetal.com)."
+          case "$MARK" in "${GITHUB_SHA}"*) echo "OK: live site served this deploy (${GITHUB_SHA:0:7}). If browser still old, purge cache." ;; *)
+            echo "::error::Marker does not match this run (got prefix: ${MARK:0:40}). Purge cache or fix DEPLOY_VERIFY_URL."
             exit 1
           ;; esac
