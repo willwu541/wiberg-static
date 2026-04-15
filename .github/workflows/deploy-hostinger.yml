@@ -47,8 +47,10 @@ jobs:
           Copy-Item -Path llms-full.txt -Destination _site-dist\llms-full.txt -Force -ErrorAction SilentlyContinue
           Copy-Item -Path 404.html -Destination _site-dist\404.html -Force -ErrorAction SilentlyContinue
           Copy-Item -Path blog -Destination _site-dist\blog -Recurse -Force -ErrorAction SilentlyContinue
+          # 部署后浏览器打开 https://你的域名/.deploy-revision.txt 应对应当前 commit（核对是否传到对目录）
+          Set-Content -Path '_site-dist/.deploy-revision.txt' -Value "${env:GITHUB_SHA} $(Get-Date -Format 'o')" -Encoding utf8
 
-      # 主路径：lftp 多连接并行；--ignore-time 只比文件大小，避免 CI 检出后时间戳全变导致每次整站重传
+      # Hostinger：FTP 登录目录是用户根（与 DO_NOT_UPLOAD_HERE 同级），必须用「相对」public_html，不要用 cd /public_html（会指到服务器根路径，网站文件夹不会更新）
       - name: Deploy via lftp (parallel mirror)
         id: deploy_lftp
         continue-on-error: true
@@ -56,12 +58,23 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          # 可选：Settings → Variables → FTP_REMOTE_DIR，例如 domains/example.com/public_html/（无开头斜杠 = 相对 FTP 根）
+          FTP_REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
         run: |
           set -euo pipefail
           sudo apt-get update -qq
           sudo apt-get install -yqq lftp
           printf '%s\n' "machine ${FTP_SERVER}" "login ${FTP_USERNAME}" "password ${FTP_PASSWORD}" > "$HOME/.netrc"
           chmod 600 "$HOME/.netrc"
+          if [ -n "${FTP_REMOTE_DIR:-}" ]; then
+            REMOTE="${FTP_REMOTE_DIR}"
+          else
+            REMOTE="public_html"
+          fi
+          case "$REMOTE" in */) ;; *) REMOTE="${REMOTE}/" ;; esac
+          echo "lftp cd target: $REMOTE (relative to FTP home unless you set an absolute-style path in FTP_REMOTE_DIR)"
+          FILES="$(find "${GITHUB_WORKSPACE}/_site-dist" -type f | wc -l)"
+          echo "Starting mirror at $(date -u +%Y-%m-%dT%H:%M:%SZ) — ${FILES} files"
           {
             echo 'set dns:order "inet"'
             echo 'set net:timeout 120'
@@ -69,14 +82,27 @@ jobs:
             echo 'set net:reconnect-interval-base 5'
             echo 'set ftp:ssl-allow no'
             echo 'set cmd:fail-exit yes'
+            echo 'set cmd:verbose yes'
             echo "open -p 21 ftp://${FTP_SERVER}"
             echo "lcd ${GITHUB_WORKSPACE}/_site-dist"
-            echo 'cd /public_html'
-            echo 'mirror -R --parallel=12 --ignore-time -v'
+            echo "cd $REMOTE"
+            echo 'mirror -R --parallel=6 -v'
             echo 'bye'
           } > /tmp/lftp-deploy.txt
-          lftp -f /tmp/lftp-deploy.txt
+          set +e
+          lftp -f /tmp/lftp-deploy.txt &
+          LFTP_PID=$!
+          while kill -0 "$LFTP_PID" 2>/dev/null; do
+            sleep 45
+            if kill -0 "$LFTP_PID" 2>/dev/null; then
+              echo "…mirror still running $(date -u +%H:%M:%SZ) UTC"
+            fi
+          done
+          wait "$LFTP_PID"
+          CODE=$?
+          set -e
           rm -f "$HOME/.netrc" /tmp/lftp-deploy.txt
+          exit "$CODE"
 
       # 备用：单线程 + 远端 state 增量（lftp 失败或主机限制多连接时）
       - name: Deploy with FTP (fallback)
@@ -90,7 +116,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: /public_html/
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
@@ -114,7 +140,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps-legacy
           port: 21
-          server-dir: /public_html/
+          server-dir: ${{ vars.FTP_REMOTE_DIR != '' && vars.FTP_REMOTE_DIR || 'public_html/' }}
           local-dir: ./_site-dist/
           state-name: hostinger-ftp-state.json
           timeout: 1800000
